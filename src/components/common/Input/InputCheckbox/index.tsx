@@ -1,12 +1,13 @@
 import styled, { css } from 'styled-components';
 import { ReactComponent as CheckIcon } from '@assets/icons/check.svg';
 import pxToRem from '@utils/pxToRem';
+import useCheckbox from '../hooks/useCheckbox';
 
 interface Props
   extends React.PropsWithChildren,
     Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
-  id: string;
   size: 'small' | 'medium' | 'large';
+  setChecked: (value: boolean | ((prev: boolean) => boolean)) => void;
 }
 
 const SmallStyle = css`
@@ -42,8 +43,10 @@ const LargeStyle = css`
   }
 `;
 
-const Container = styled.span`
+const Container = styled.label`
   ${({ theme }) => theme.mixin.inlineFlex()}
+  position: relative;
+  user-select: none;
 
   &.small {
     ${SmallStyle}
@@ -70,10 +73,6 @@ const Container = styled.span`
   }
 `;
 
-const Input = styled.input`
-  display: none;
-`;
-
 const CheckBox = styled.span<{ checked?: boolean }>`
   ${({ theme }) => theme.mixin.inlineFlex()};
   padding: ${pxToRem(2)};
@@ -81,7 +80,8 @@ const CheckBox = styled.span<{ checked?: boolean }>`
   border-radius: ${pxToRem(4)};
 
   & svg {
-    fill: ${({ theme }) => theme.color.GRAY_DARK};
+    visibility: hidden;
+    fill: ${({ theme }) => theme.color.WHITE};
   }
 
   ${({ checked, theme }) =>
@@ -90,23 +90,34 @@ const CheckBox = styled.span<{ checked?: boolean }>`
       background-color: ${theme.color.BLUE};
 
       & svg {
-        fill: ${theme.color.WHITE};
+        visibility: visible;
       }
     `}
 `;
 
-const Label = styled.label`
-  user-select: none;
-`;
+function InputCheckbox({
+  size,
+  checked,
+  setChecked,
+  children,
+  ...attributes
+}: Props) {
+  const { handleChange, handleKeyDown } = useCheckbox(setChecked);
 
-function InputCheckbox({ id, size, children, checked, ...attributes }: Props) {
   return (
     <Container className={size}>
-      <Input id={id} type="checkbox" checked={checked} {...attributes} />
       <CheckBox className="box" checked={checked}>
         <CheckIcon />
       </CheckBox>
-      <Label htmlFor={id}>{children}</Label>
+      {children}
+      <input
+        type="checkbox"
+        className="sr-only"
+        checked={checked}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+        {...attributes}
+      />
     </Container>
   );
 }
