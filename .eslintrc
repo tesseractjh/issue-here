@@ -101,8 +101,7 @@
             "position": "after"
           }
         ],
-
-        "pathGroupsExcludedImportTypes": ["@tanstack*"],
+        "pathGroupsExcludedImportTypes": [],
         "alphabetize": {
           "order": "asc"
         }
