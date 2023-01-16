@@ -1,12 +1,38 @@
 import 'styled-components';
-import color from '@styles/theme/color';
 import media from '@styles/theme/media';
 import * as mixin from '@styles/theme/mixin';
 
 declare module 'styled-components' {
+  type Color = {
+    BACKGROUND: string;
+    BACKGROUND_DARK: string;
+    BACKGROUND_LIGHT: string;
+    BORDER: string;
+    BORDER_DARK: string;
+    INACTIVE: string;
+    WHITE: string;
+    GRAY: string;
+    GRAY_DARK: string;
+    GRAY_LIGHT: string;
+    BLUE: string;
+    BLUE_DARK: string;
+    BLUE_LIGHT: string;
+    NAVY: string;
+    NAVY_DARK: string;
+    NAVY_LIGHT: string;
+    GREEN: string;
+    GREEN_DARK: string;
+    GREEN_LIGHT: string;
+    RED: string;
+    RED_DARK: string;
+    RED_LIGHT: string;
+  };
+
   interface DefaultTheme {
-    color: typeof color;
+    color: Color;
     media: typeof media;
     mixin: typeof mixin;
+    lightColor: Color;
+    darkColor: Color;
   }
 }

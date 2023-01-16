@@ -53,9 +53,10 @@ const GlobalStyle = createGlobalStyle`
   /* custom */
 
   html {
-    background-color: ${({ theme }) => theme.color.WHITE};
+    background-color: ${({ theme }) => theme.color.BACKGROUND};
     color: ${({ theme }) => theme.color.GRAY};
     font-size: 62.5%;
+    transition: background-color 0.15s;
   }
 
   html,

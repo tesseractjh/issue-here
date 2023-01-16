@@ -20,6 +20,11 @@ const Container = styled.label`
   background-color: ${({ theme }) => theme.color.GRAY};
   cursor: pointer;
   user-select: none;
+
+  &:hover .switch-toggle-track-thumb {
+    border-color: transparent;
+    box-shadow: 0 0 2px 3px ${({ theme }) => theme.color.BLUE};
+  }
 `;
 
 const TrackThumb = styled.span<{ checked?: boolean }>`
@@ -39,11 +44,6 @@ const TrackThumb = styled.span<{ checked?: boolean }>`
     css`
       transform: translate3d(${pxToRem(28)}, ${pxToRem(2)}, 0);
     `}
-
-  &:hover {
-    border-color: transparent;
-    box-shadow: 0 0 2px 3px ${({ theme }) => theme.color.BLUE};
-  }
 `;
 
 const Content = styled.span`
@@ -70,10 +70,10 @@ function ToggleSwitch({
   const { handleChange, handleKeyDown } = useCheckbox(setChecked);
 
   return (
-    <Container>
+    <Container className="switch-toggle">
       <Content>{checkedContent}</Content>
       <Content>{uncheckedContent}</Content>
-      <TrackThumb checked={checked} />
+      <TrackThumb className="switch-toggle-track-thumb" checked={checked} />
       <input
         type="checkbox"
         className="sr-only"
