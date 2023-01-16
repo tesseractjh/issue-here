@@ -1,6 +1,7 @@
 import ModalBackground from './ModalBackground';
 import ModalContent from './ModalContent';
 import ModalContext from './ModalContext';
+import Portal from './Portal';
 import useModal from './hooks/useModal';
 
 interface Props extends React.PropsWithChildren {
@@ -17,8 +18,10 @@ function Modal({ isOpen, setIsOpen, children }: Props) {
 
   return (
     <ModalContext.Provider value={value}>
-      <ModalBackground />
-      <ModalContent>{children}</ModalContent>
+      <Portal>
+        <ModalBackground />
+        <ModalContent>{children}</ModalContent>
+      </Portal>
     </ModalContext.Provider>
   );
 }
