@@ -42,7 +42,7 @@ function ModalContent({ children }: React.PropsWithChildren) {
   const { handleClose } = useModalContext();
 
   return (
-    <Container>
+    <Container className="modal">
       <Top>
         <ButtonClose onClick={handleClose}>
           <XmarkIcon />

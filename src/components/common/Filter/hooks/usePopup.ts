@@ -9,7 +9,11 @@ interface Params {
 function usePopup({ id, isOpen, setIsOpen }: Params) {
   const handleDocumentClick = useCallback(
     ({ target }: MouseEvent) => {
-      if (!(target instanceof Element) || target.closest(`#${id}`)) {
+      if (
+        !(target instanceof Element) ||
+        target.closest(`#${id}`) ||
+        target.closest('.modal')
+      ) {
         return;
       }
       setIsOpen(false);

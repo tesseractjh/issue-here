@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import useModalContext from './hooks/useModalContext';
 
 const Background = styled.div`
-  ${({ theme }) => theme.mixin.flex()}
   position: fixed;
   top: 0;
   left: 0;
@@ -15,7 +14,7 @@ const Background = styled.div`
 function ModalBackground() {
   const { handleClose } = useModalContext();
 
-  return <Background onClick={handleClose} />;
+  return <Background className="modal" onClick={handleClose} />;
 }
 
 export default ModalBackground;
