@@ -46,6 +46,7 @@ const LargeStyle = css`
 const Container = styled.label`
   ${({ theme }) => theme.mixin.inlineFlex()}
   position: relative;
+  color: ${({ theme }) => theme.color.GRAY_DARK};
   user-select: none;
 
   &.small {
@@ -61,33 +62,34 @@ const Container = styled.label`
   }
 
   &:hover .box {
-    background-color: ${({ theme }) => theme.color.BLUE_LIGHT};
+    background-color: ${({ theme }) => theme.lightColor.BLUE_LIGHT};
 
     & svg {
-      fill: ${({ theme }) => theme.color.GRAY_DARK};
+      fill: ${({ theme }) => theme.lightColor.GRAY_DARK};
     }
   }
 
   &:active .box {
-    background-color: ${({ theme }) => theme.color.BORDER_DARK};
+    background-color: ${({ theme }) => theme.lightColor.BORDER_DARK};
   }
 `;
 
 const CheckBox = styled.span<{ checked?: boolean }>`
   ${({ theme }) => theme.mixin.inlineFlex()};
   padding: ${pxToRem(2)};
-  border: 1px solid ${({ theme }) => theme.color.BLUE_DARK};
+  border: 1px solid ${({ theme }) => theme.lightColor.BLUE_DARK};
   border-radius: ${pxToRem(4)};
+  background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
 
   & svg {
     visibility: hidden;
-    fill: ${({ theme }) => theme.color.WHITE};
+    fill: ${({ theme }) => theme.lightColor.WHITE};
   }
 
   ${({ checked, theme }) =>
     checked &&
     css`
-      background-color: ${theme.color.BLUE};
+      background-color: ${theme.lightColor.BLUE};
 
       & svg {
         visibility: visible;

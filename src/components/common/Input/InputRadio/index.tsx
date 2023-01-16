@@ -47,6 +47,7 @@ const LargeStyle = css`
 const Container = styled.label`
   ${({ theme }) => theme.mixin.inlineFlex()}
   position: relative;
+  color: ${({ theme }) => theme.color.GRAY_DARK};
   user-select: none;
 
   &.small {
@@ -62,18 +63,18 @@ const Container = styled.label`
   }
 
   &:hover .radio {
-    background-color: ${({ theme }) => theme.color.BLUE_LIGHT};
+    background-color: ${({ theme }) => theme.lightColor.BLUE_LIGHT};
   }
 
   &:active .radio {
-    background-color: ${({ theme }) => theme.color.BORDER_DARK};
+    background-color: ${({ theme }) => theme.lightColor.BORDER_DARK};
   }
 `;
 
 const Radio = styled.span<{ checked?: boolean }>`
   ${({ theme }) => theme.mixin.inlineFlex()}
   overflow: hidden;
-  border: 1px solid ${({ theme }) => theme.color.BLUE_DARK};
+  border: 1px solid ${({ theme }) => theme.lightColor.BLUE_DARK};
   border-radius: 50%;
 
   &::after {
@@ -88,7 +89,7 @@ const Radio = styled.span<{ checked?: boolean }>`
     checked &&
     css`
       &::after {
-        background-color: ${theme.color.BLUE};
+        background-color: ${theme.lightColor.BLUE};
       }
     `}
 `;

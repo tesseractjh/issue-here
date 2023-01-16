@@ -42,6 +42,8 @@ const LargeStyle = css`
 
 const StyledButton = styled.button<{ colorTheme: ButtonPropsBase['theme'] }>`
   display: inline-block;
+  background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
+  color: ${({ theme }) => theme.lightColor.GRAY_DARK};
   user-select: none;
 
   &.small {
@@ -58,39 +60,39 @@ const StyledButton = styled.button<{ colorTheme: ButtonPropsBase['theme'] }>`
 
   &:hover {
     background-color: ${({ colorTheme, theme }) =>
-      theme.color[THEMES_BUTTON[colorTheme].hoverBackground[1]]};
+      theme.lightColor[THEMES_BUTTON[colorTheme].hoverBackground[1]]};
   }
 
   &.contained {
     background-color: ${({ colorTheme, theme }) =>
-      theme.color[THEMES_BUTTON[colorTheme].background[0]]};
+      theme.lightColor[THEMES_BUTTON[colorTheme].background[0]]};
 
     color: ${({ colorTheme, theme }) =>
-      theme.color[THEMES_BUTTON[colorTheme].text[0]]};
+      theme.lightColor[THEMES_BUTTON[colorTheme].text[0]]};
 
     &:hover {
       background-color: ${({ colorTheme, theme }) =>
-        theme.color[THEMES_BUTTON[colorTheme].hoverBackground[0]]};
+        theme.lightColor[THEMES_BUTTON[colorTheme].hoverBackground[0]]};
     }
   }
 
   &.outlined {
     border: 1px solid
       ${({ colorTheme, theme }) =>
-        theme.color[THEMES_BUTTON[colorTheme].border]};
+        theme.lightColor[THEMES_BUTTON[colorTheme].border]};
 
     color: ${({ colorTheme, theme }) =>
-      theme.color[THEMES_BUTTON[colorTheme].text[1]]};
+      theme.lightColor[THEMES_BUTTON[colorTheme].text[1]]};
   }
 
   &:disabled {
     border: none;
-    background-color: ${({ theme }) => theme.color.INACTIVE};
-    color: ${({ theme }) => theme.color.WHITE};
+    background-color: ${({ theme }) => theme.lightColor.INACTIVE};
+    color: ${({ theme }) => theme.lightColor.WHITE};
     cursor: not-allowed;
 
     &:hover {
-      background-color: ${({ theme }) => theme.color.INACTIVE};
+      background-color: ${({ theme }) => theme.lightColor.INACTIVE};
     }
   }
 `;

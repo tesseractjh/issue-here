@@ -51,54 +51,54 @@
             "position": "before"
           },
           {
-            "pattern": "@configs/*",
+            "pattern": "@configs/**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           },
           {
-            "pattern": "@recoil/*",
+            "pattern": "@recoil/**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           },
           {
-            "pattern": "@api/*",
+            "pattern": "@api/**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           },
           {
-            "pattern": "@hooks/*",
+            "pattern": "@hooks/**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           },
           {
-            "pattern": "@styles/*",
+            "pattern": "@styles/**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           },
           {
-            "pattern": "@pages/*",
+            "pattern": "@pages/**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           },
           {
-            "pattern": "@components/*",
+            "pattern": "@components/**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           },
           {
-            "pattern": "@assets/*",
+            "pattern": "@assets/**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           },
           {
-            "pattern": "@utils/*",
+            "pattern": "@utils/**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           },
           {
-            "pattern": "@constants/*",
+            "pattern": "@constants/**",
             "group": "internal",
-            "position": "after"
+            "position": "before"
           }
         ],
         "pathGroupsExcludedImportTypes": [],
