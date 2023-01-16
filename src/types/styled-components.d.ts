@@ -10,6 +10,7 @@ declare module 'styled-components' {
     BORDER: string;
     BORDER_DARK: string;
     INACTIVE: string;
+    BOX_SHADOW: string;
     WHITE: string;
     GRAY: string;
     GRAY_DARK: string;

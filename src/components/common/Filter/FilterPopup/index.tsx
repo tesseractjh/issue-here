@@ -17,14 +17,15 @@ const Container = styled.div`
   left: 0;
   z-index: 10;
   width: fit-content;
-  border: 1px solid ${({ theme }) => theme.color.BORDER_DARK};
+  border: 1px solid ${({ theme }) => theme.lightColor.BORDER_DARK};
   border-radius: ${pxToRem(4)};
-  box-shadow: 0 12px 24px 0 rgb(0 0 0 / 15%);
+  background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
+  box-shadow: 0 12px 24px 0 ${({ theme }) => theme.color.BOX_SHADOW};
 `;
 
 const Top = styled.div`
   padding: ${pxToRem(16)};
-  border-bottom: 1px solid ${({ theme }) => theme.color.BORDER_DARK};
+  border-bottom: 1px solid ${({ theme }) => theme.lightColor.BORDER_DARK};
 `;
 
 const Bottom = styled.div`

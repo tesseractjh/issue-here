@@ -12,7 +12,7 @@ const Container = styled.div`
   z-index: 1000;
   padding: ${pxToRem(20)};
   border-radius: ${pxToRem(8)};
-  background-color: ${({ theme }) => theme.color.WHITE};
+  background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
 `;
 
 const Top = styled.div`

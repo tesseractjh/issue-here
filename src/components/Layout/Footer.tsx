@@ -4,9 +4,9 @@ import pxToRem from '@utils/pxToRem';
 const Container = styled.footer`
   ${({ theme }) => theme.mixin.flex()}
   height: ${pxToRem(80)};
-  background-color: ${({ theme }) => theme.color.NAVY};
+  background-color: ${({ theme }) => theme.lightColor.NAVY};
   font-size: ${pxToRem(12)};
-  color: ${({ theme }) => theme.color.WHITE};
+  color: ${({ theme }) => theme.lightColor.WHITE};
 
   ${({ theme }) =>
     theme.media.mobile(`

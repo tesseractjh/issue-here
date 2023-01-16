@@ -8,7 +8,7 @@ const THEMES_BUTTON = {
   gray: {
     border: 'GRAY_DARK',
     background: ['GRAY_DARK', 'BACKGROUND'],
-    hoverBackground: ['GRAY', 'BACKGROUND'],
+    hoverBackground: ['GRAY', 'BACKGROUND_DARK'],
     text: ['WHITE', 'GRAY_DARK']
   }
 } as const;

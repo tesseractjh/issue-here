@@ -23,7 +23,7 @@ const Container = styled.label`
 
   &:hover .switch-toggle-track-thumb {
     border-color: transparent;
-    box-shadow: 0 0 2px 3px ${({ theme }) => theme.color.BLUE};
+    box-shadow: 0 0 2px 3px ${({ theme }) => theme.lightColor.BLUE};
   }
 `;
 
@@ -34,7 +34,7 @@ const TrackThumb = styled.span<{ checked?: boolean }>`
   transform: translate3d(${pxToRem(2)}, ${pxToRem(2)}, 0);
   width: ${pxToRem(20)};
   height: ${pxToRem(20)};
-  border: 1px solid ${({ theme }) => theme.color.GRAY_DARK};
+  border: 1px solid ${({ theme }) => theme.lightColor.GRAY_DARK};
   border-radius: 50%;
   background-color: ${({ theme }) => theme.color.WHITE};
   transition: transform 0.25s ease-in-out;
