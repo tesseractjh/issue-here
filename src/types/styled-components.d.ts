@@ -11,6 +11,7 @@ declare module 'styled-components' {
     BORDER_DARK: string;
     INACTIVE: string;
     BOX_SHADOW: string;
+    BOX_SHADOW_LIGHT: string;
     WHITE: string;
     GRAY: string;
     GRAY_DARK: string;
