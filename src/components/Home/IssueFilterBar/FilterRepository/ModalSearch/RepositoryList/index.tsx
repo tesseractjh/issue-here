@@ -1,8 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import Spinner from '@components/common/Spinner';
-import pxToRem from '@utils/pxToRem';
 import RepositoryItem from './RepositoryItem';
+import pxToRem from '@utils/pxToRem';
+import useRepositoryItemProps from './hooks/useRepositoryItemProps';
 import useRepositoryList from './hooks/useRepositoryList';
 
 const Container = styled.ul`
@@ -24,6 +25,8 @@ const FallbackWrapper = styled.div<{ isEmpty: boolean }>`
 
 function RepositoryList() {
   const { query, data, isFetching, handleIntersect } = useRepositoryList();
+  const itemProps = useRepositoryItemProps();
+
   const target = useInfiniteScroll<HTMLUListElement>({
     data,
     targetLastIndex: 5,
@@ -34,7 +37,12 @@ function RepositoryList() {
   return (
     <Container ref={target}>
       {data.map((item) => (
-        <RepositoryItem key={item.node_id} item={item} query={query} />
+        <RepositoryItem
+          key={item.node_id}
+          item={item}
+          query={query}
+          {...itemProps}
+        />
       ))}
       {!data.length && !isFetching && (
         <NoResult>검색 결과가 없습니다.</NoResult>

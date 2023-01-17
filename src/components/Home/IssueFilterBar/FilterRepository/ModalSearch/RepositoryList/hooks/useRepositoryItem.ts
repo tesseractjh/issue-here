@@ -1,39 +1,37 @@
-import { useRecoilState } from 'recoil';
-import { filterRepositoryState } from '@recoil/filter';
+import { useState, useCallback } from 'react';
+import type { FilterRepositoryState } from '@recoil/filter';
+import useComponentDidMount from '@hooks/useComponentDidMount';
 
 interface Params {
-  ownerId: number;
-  owner: string;
-  repo: string;
+  targetRepo: FilterRepositoryState;
+  setFavorite: (
+    repoState: FilterRepositoryState,
+    setter: React.Dispatch<React.SetStateAction<boolean>>
+  ) => Promise<void>;
+  toggleFavorite: (
+    repoState: FilterRepositoryState,
+    setter: React.Dispatch<React.SetStateAction<boolean>>
+  ) => Promise<React.MouseEventHandler>;
 }
 
-const MAX_REPO_LENGTH = 4;
-
 function useRepositoryItem({
-  ownerId,
-  owner: curOwner,
-  repo: curRepo
+  targetRepo,
+  setFavorite,
+  toggleFavorite
 }: Params) {
-  const [repos, setRepos] = useRecoilState(filterRepositoryState);
-  const duplicate = repos.find(
-    ({ owner, repo }) => owner === curOwner && repo === curRepo
-  );
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  const handleClick = () => {
-    if (duplicate) {
-      setRepos((prev) => prev.filter((repo) => repo !== duplicate));
-      return;
-    }
+  const initiateFavorite = useCallback(async () => {
+    await setFavorite(targetRepo, setIsFavorite);
+  }, [setFavorite, targetRepo, setIsFavorite]);
 
-    if (repos.length === MAX_REPO_LENGTH) {
-      alert('즐겨찾기 목록이 가득 찼습니다!');
-      return;
-    }
-
-    setRepos((prev) => [...prev, { ownerId, owner: curOwner, repo: curRepo }]);
+  const handleClick = async (event: React.MouseEvent) => {
+    (await toggleFavorite(targetRepo, setIsFavorite))(event);
   };
 
-  return { isFavorite: !!duplicate, handleClick };
+  useComponentDidMount(initiateFavorite);
+
+  return { isFavorite, handleClick };
 }
 
 export default useRepositoryItem;

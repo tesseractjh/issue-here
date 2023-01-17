@@ -1,11 +1,12 @@
 import type { Github } from 'src/types/github';
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { FilterRepositoryState } from '@recoil/filter';
 import useHighlight from '@hooks/useHighlight';
 import HiddenText from '@components/common/HiddenText';
+import useRepositoryItem from './hooks/useRepositoryItem';
 import { ReactComponent as ForkIcon } from '@assets/icons/fork.svg';
 import { ReactComponent as IssueIcon } from '@assets/icons/issue.svg';
-import useRepositoryItem from './hooks/useRepositoryItem';
 import { ReactComponent as ContainedStarIcon } from '@assets/icons/star.svg';
 import { ReactComponent as StarIcon } from '@assets/icons/star_outlined.svg';
 import pxToRem from '@utils/pxToRem';
@@ -13,6 +14,14 @@ import pxToRem from '@utils/pxToRem';
 interface Props {
   item: Github.Repository;
   query: string;
+  setFavorite: (
+    repoState: FilterRepositoryState,
+    setter: React.Dispatch<React.SetStateAction<boolean>>
+  ) => Promise<void>;
+  toggleFavorite: (
+    repoState: FilterRepositoryState,
+    setter: React.Dispatch<React.SetStateAction<boolean>>
+  ) => Promise<React.MouseEventHandler>;
 }
 
 const Container = styled.li`
@@ -133,7 +142,7 @@ const Info = styled.span`
   ${({ theme }) => theme.mixin.inlineFlex()};
 `;
 
-function RepositoryItem({ item, query }: Props) {
+function RepositoryItem({ item, query, setFavorite, toggleFavorite }: Props) {
   const {
     name: repo,
     full_name: fullName,
@@ -152,9 +161,9 @@ function RepositoryItem({ item, query }: Props) {
   } = item;
 
   const { isFavorite, handleClick } = useRepositoryItem({
-    ownerId,
-    owner,
-    repo
+    targetRepo: { ownerId, owner, repo },
+    setFavorite,
+    toggleFavorite
   });
 
   const highlighted = useHighlight({

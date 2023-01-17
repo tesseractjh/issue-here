@@ -1,13 +1,13 @@
 import { atom } from 'recoil';
 import { localStorageEffect } from '@utils/effect';
 
-type RepositoryState = {
+export type FilterRepositoryState = {
   ownerId: number;
   owner: string;
   repo: string;
 };
 
-export const filterRepositoryState = atom<RepositoryState[]>({
+export const filterRepositoryState = atom<FilterRepositoryState[]>({
   key: 'filterRepositoryState',
   default: JSON.parse(localStorage.getItem('filter_repository') ?? '[]'),
   effects: [
