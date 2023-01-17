@@ -1,6 +1,7 @@
 import 'styled-components';
 import media from '@styles/theme/media';
 import * as mixin from '@styles/theme/mixin';
+import * as placeholder from '@styles/theme/placeholder';
 
 declare module 'styled-components' {
   type Color = {
@@ -34,6 +35,7 @@ declare module 'styled-components' {
     color: Color;
     media: typeof media;
     mixin: typeof mixin;
+    placeholder: typeof placeholder;
     lightColor: Color;
     darkColor: Color;
   }
