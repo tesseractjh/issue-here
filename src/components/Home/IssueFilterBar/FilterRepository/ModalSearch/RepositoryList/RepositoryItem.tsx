@@ -17,15 +17,6 @@ interface Props {
 
 const Container = styled.li`
   ${({ theme }) => theme.mixin.flex('flex-start')}
-  padding: ${pxToRem(16)};
-  border: 1px solid ${({ theme }) => theme.color.BLUE_DARK};
-  border-radius: ${pxToRem(10)};
-  background-color: ${({ theme }) => theme.color.ITEM_BACKGROUND};
-  font-size: ${pxToRem(14)};
-
-  &:hover {
-    background-color: ${({ theme }) => theme.color.BLUE_LIGHT};
-  }
 `;
 
 const ButtonAddFavorite = styled.button<{ isFavorite: boolean }>`
@@ -34,7 +25,7 @@ const ButtonAddFavorite = styled.button<{ isFavorite: boolean }>`
   position: relative;
   width: ${pxToRem(18)};
   height: ${pxToRem(18)};
-  margin-right: ${pxToRem(16)};
+  margin: ${pxToRem(8, 16, 0, 0)};
 
   & svg {
     ${({ theme }) => theme.placeholder.absoluteCenter}
@@ -52,6 +43,20 @@ const ButtonAddFavorite = styled.button<{ isFavorite: boolean }>`
         stroke-width: 10;
       }
     `}
+`;
+
+const Repository = styled.div`
+  flex: 1;
+  ${({ theme }) => theme.mixin.flex('flex-start')}
+  padding: ${pxToRem(16)};
+  border: 1px solid ${({ theme }) => theme.color.BLUE_DARK};
+  border-radius: ${pxToRem(10)};
+  background-color: ${({ theme }) => theme.color.ITEM_BACKGROUND};
+  font-size: ${pxToRem(14)};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.color.BLUE_LIGHT};
+  }
 `;
 
 const ImageAnchor = styled.a`
@@ -166,36 +171,38 @@ function RepositoryItem({ item, query }: Props) {
           <StarIcon className="modal" />
         )}
       </ButtonAddFavorite>
-      <ImageAnchor href={ownerURL}>
-        <img src={imageURL} alt="Repository Owner" />
-      </ImageAnchor>
-      <RepositoryInfo>
-        <Name href={repoURL}>{highlighted}</Name>
-        <Description>{description}</Description>
-        <TopicList>
-          <HiddenText>Topics</HiddenText>
-          {topics.map((topic) => (
-            <Topic key={topic}>{topic}</Topic>
-          ))}
-        </TopicList>
-        <NumericalInfo>
-          <Info>
-            <HiddenText>Star count</HiddenText>
-            <StarIcon />
-            {star.toLocaleString('ko-kr')}
-          </Info>
-          <Info>
-            <HiddenText>Fork count</HiddenText>
-            <ForkIcon />
-            {fork.toLocaleString('ko-kr')}
-          </Info>
-          <Info>
-            <HiddenText>Open issues count</HiddenText>
-            <IssueIcon />
-            {openIssues.toLocaleString('ko-kr')}
-          </Info>
-        </NumericalInfo>
-      </RepositoryInfo>
+      <Repository>
+        <ImageAnchor href={ownerURL}>
+          <img src={imageURL} alt="Repository Owner" />
+        </ImageAnchor>
+        <RepositoryInfo>
+          <Name href={repoURL}>{highlighted}</Name>
+          <Description>{description}</Description>
+          <TopicList>
+            <HiddenText>Topics</HiddenText>
+            {topics.map((topic) => (
+              <Topic key={topic}>{topic}</Topic>
+            ))}
+          </TopicList>
+          <NumericalInfo>
+            <Info>
+              <HiddenText>Star count</HiddenText>
+              <StarIcon />
+              {star.toLocaleString('ko-kr')}
+            </Info>
+            <Info>
+              <HiddenText>Fork count</HiddenText>
+              <ForkIcon />
+              {fork.toLocaleString('ko-kr')}
+            </Info>
+            <Info>
+              <HiddenText>Open issues count</HiddenText>
+              <IssueIcon />
+              {openIssues.toLocaleString('ko-kr')}
+            </Info>
+          </NumericalInfo>
+        </RepositoryInfo>
+      </Repository>
     </Container>
   );
 }
