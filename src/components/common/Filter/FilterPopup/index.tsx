@@ -33,8 +33,8 @@ const Bottom = styled.div`
 `;
 
 function FilterPopup({ onClear, onApply, children }: Props) {
-  const { id, isOpen, setIsOpen } = useFilterContext();
-  usePopup({ id, isOpen, setIsOpen });
+  const { id, isOpen, setIsOpen, handleClose } = useFilterContext();
+  usePopup({ id, isOpen, setIsOpen, handleClose });
 
   if (!isOpen) {
     return null;

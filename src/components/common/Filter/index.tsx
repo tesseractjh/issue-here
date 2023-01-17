@@ -6,6 +6,7 @@ import useFilter from './hooks/useFilter';
 
 interface Props extends React.PropsWithChildren {
   id: string;
+  onClose?: () => void;
 }
 
 const Container = styled.span`
@@ -13,8 +14,8 @@ const Container = styled.span`
   position: relative;
 `;
 
-function Filter({ id, children }: Props) {
-  const value = useFilter(id);
+function Filter({ id, onClose: handleClose, children }: Props) {
+  const value = useFilter({ id, handleClose });
 
   return (
     <FilterContext.Provider value={value}>
