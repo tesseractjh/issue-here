@@ -1,11 +1,13 @@
 import styled, { css, keyframes } from 'styled-components';
 import InnerWrapper from '@components/InnerWrapper';
+import HiddenText from '@components/common/HiddenText';
 import pxToRem from '@utils/pxToRem';
 import {
   HEADER_HEIGHT_DESKTOP,
   HEADER_HEIGHT_TABLET,
   ISSUE_FILTER_BAR_HEIGHT
 } from '@constants/style';
+import FitlerRepository from './FilterRepository';
 
 const Animation = keyframes`
   0% {
@@ -59,7 +61,10 @@ function IssueFilterBar() {
   return (
     <Container>
       <InnerWrapper>
-        <Flex>filters</Flex>
+        <Flex>
+          <HiddenText>Issue filter</HiddenText>
+          <FitlerRepository />
+        </Flex>
       </InnerWrapper>
     </Container>
   );

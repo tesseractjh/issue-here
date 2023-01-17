@@ -3,11 +3,12 @@ import Filter from '@components/common/Filter';
 interface Props extends React.PropsWithChildren {
   id: string;
   triggerContent: string;
+  onClose?: () => void;
 }
 
-function IssueFilter({ id, triggerContent, children }: Props) {
+function IssueFilter({ id, triggerContent, onClose, children }: Props) {
   return (
-    <Filter id={id}>
+    <Filter id={`filter-${id}`} onClose={onClose}>
       <Filter.Trigger content={triggerContent} />
       <Filter.Popup
         onClear={() => console.log('clear')}
