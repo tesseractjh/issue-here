@@ -1,5 +1,6 @@
 export namespace Github {
   export type Owner = {
+    id: number;
     node_id: string;
     login: string;
     avatar_url: string;

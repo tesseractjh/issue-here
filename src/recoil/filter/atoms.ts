@@ -2,6 +2,7 @@ import { atom } from 'recoil';
 import { localStorageEffect } from '@utils/effect';
 
 type RepositoryState = {
+  ownerId: number;
   owner: string;
   repo: string;
 };
