@@ -44,6 +44,7 @@ const StyledButton = styled.button<{ colorTheme: ButtonPropsBase['theme'] }>`
   display: inline-block;
   background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
   color: ${({ theme }) => theme.lightColor.GRAY_DARK};
+  white-space: nowrap;
   user-select: none;
 
   &.small {

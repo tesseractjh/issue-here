@@ -29,6 +29,7 @@ declare module 'styled-components' {
     RED: string;
     RED_DARK: string;
     RED_LIGHT: string;
+    YELLOW: string;
   };
 
   interface DefaultTheme {

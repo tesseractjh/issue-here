@@ -24,13 +24,12 @@ const Container = styled.div`
 `;
 
 const Top = styled.div`
-  padding: ${pxToRem(16)};
   border-bottom: 1px solid ${({ theme }) => theme.lightColor.BORDER_DARK};
 `;
 
 const Bottom = styled.div`
   ${({ theme }) => theme.mixin.flex('flex-end', 'center', pxToRem(16))}
-  padding: ${pxToRem(16)};
+  padding: ${pxToRem(12, 16)};
 `;
 
 function FilterPopup({ onClear, onApply, children }: Props) {

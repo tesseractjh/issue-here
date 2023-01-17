@@ -22,7 +22,8 @@ export const lightColor = {
   GREEN_LIGHT: '#e7faf3',
   RED: '#fddfdd',
   RED_DARK: '#ff4e5b',
-  RED_LIGHT: '#ffeeef'
+  RED_LIGHT: '#ffeeef',
+  YELLOW: '#ffe234'
 } as const;
 
 export const darkColor = {
@@ -49,5 +50,6 @@ export const darkColor = {
   GREEN_LIGHT: '#e7faf3',
   RED: '#fddfdd',
   RED_DARK: '#ff4e5b',
-  RED_LIGHT: '#ffeeef'
+  RED_LIGHT: '#ffeeef',
+  YELLOW: '#ffe234'
 };

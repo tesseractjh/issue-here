@@ -41,12 +41,18 @@ const Input = styled.input`
   }
 
   &.outlined {
-    border: 2px solid ${({ theme }) => theme.color.BLUE_DARK};
+    border: 2px solid ${({ theme }) => theme.lightColor.NAVY};
+
+    &:focus {
+      border-color: ${({ theme }) => theme.lightColor.BLUE};
+    }
   }
 `;
 
 function InputText({ size, variant, ...attributes }: Props) {
-  return <Input className={`${size} ${variant ?? ''}`} {...attributes} />;
+  return (
+    <Input type="text" className={`${size} ${variant ?? ''}`} {...attributes} />
+  );
 }
 
 export default InputText;
