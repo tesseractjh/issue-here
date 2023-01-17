@@ -31,7 +31,11 @@ function useHighlight({ text, query }: Params) {
     .map((str) => {
       if (str.startsWith('!') && str.length > 1) {
         highlightCount += 1;
-        return <Highlighted key={highlightCount}>{str.slice(1)}</Highlighted>;
+        return (
+          <Highlighted key={highlightCount} className="highlighted">
+            {str.slice(1)}
+          </Highlighted>
+        );
       }
       return str;
     })

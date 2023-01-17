@@ -15,6 +15,7 @@ const Content = styled.span`
     width: ${pxToRem(14)};
     height: ${pxToRem(14)};
     margin-left: ${pxToRem(14)};
+    fill: ${({ theme }) => theme.color.INPUT_TEXT};
   }
 `;
 

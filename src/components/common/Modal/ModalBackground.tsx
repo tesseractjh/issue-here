@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import pxToRem from '@utils/pxToRem';
 import useModalContext from './hooks/useModalContext';
 
 const Background = styled.div`
@@ -9,6 +10,7 @@ const Background = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(${pxToRem(2)});
 `;
 
 function ModalBackground() {

@@ -1,4 +1,10 @@
 export const lightColor = {
+  POPUP_TEXT: '#3d58c1',
+  INPUT_TEXT: '#111111',
+  POPUP_BACKGROUND: '#ffffff',
+  ITEM_BACKGROUND: '#ffffff',
+  INPUT_BACKGROUND: '#ffffff',
+  INPUT_BACKGROUND_DARK: '#e9edfa',
   BACKGROUND: '#ffffff',
   BACKGROUND_DARK: '#f2f2f2',
   BACKGROUND_LIGHT: '#f9fafe',
@@ -27,6 +33,12 @@ export const lightColor = {
 } as const;
 
 export const darkColor = {
+  POPUP_TEXT: '#ddddff',
+  INPUT_TEXT: '#e9edfa',
+  POPUP_BACKGROUND: '#1e1e1e',
+  ITEM_BACKGROUND: '#171612',
+  INPUT_BACKGROUND: '#111111',
+  INPUT_BACKGROUND_DARK: '#222244',
   BACKGROUND: '#1e1e1e',
   BACKGROUND_DARK: '#1e1e1e',
   BACKGROUND_LIGHT: '#171612',

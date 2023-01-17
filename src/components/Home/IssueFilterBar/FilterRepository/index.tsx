@@ -7,14 +7,14 @@ import useFilterRepository from './ModalSearch/hooks/useFilterRepository';
 import IssueFilter from '../IssueFilter';
 
 const Content = styled.div`
-  min-width: ${pxToRem(350)};
+  width: ${pxToRem(360)};
 `;
 
 const Top = styled.div`
   ${({ theme }) => theme.mixin.flexColumn()}
   gap: ${pxToRem(10)};
   padding: ${pxToRem(16)};
-  border-bottom: 1px solid ${({ theme }) => theme.lightColor.BORDER};
+  border-bottom: 1px solid ${({ theme }) => theme.color.BORDER_DARK};
   font-size: ${pxToRem(12)};
 `;
 

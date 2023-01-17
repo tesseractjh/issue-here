@@ -18,13 +18,13 @@ interface Props {
 const Container = styled.li`
   ${({ theme }) => theme.mixin.flex('flex-start')}
   padding: ${pxToRem(16)};
-  border: 1px solid ${({ theme }) => theme.lightColor.BLUE_DARK};
+  border: 1px solid ${({ theme }) => theme.color.BLUE_DARK};
   border-radius: ${pxToRem(10)};
+  background-color: ${({ theme }) => theme.color.ITEM_BACKGROUND};
   font-size: ${pxToRem(14)};
-  color: ${({ theme }) => theme.lightColor.GRAY_DARK};
 
   &:hover {
-    background-color: ${({ theme }) => theme.lightColor.BLUE_LIGHT};
+    background-color: ${({ theme }) => theme.color.BLUE_LIGHT};
   }
 `;
 
@@ -40,7 +40,7 @@ const ButtonAddFavorite = styled.button<{ isFavorite: boolean }>`
     ${({ theme }) => theme.placeholder.absoluteCenter}
     width: 100%;
     height: 100%;
-    fill: ${({ theme }) => theme.lightColor.BLUE_DARK};
+    fill: ${({ theme }) => theme.color.NAVY};
   }
 
   ${({ isFavorite, theme }) =>
@@ -48,7 +48,7 @@ const ButtonAddFavorite = styled.button<{ isFavorite: boolean }>`
     css`
       & svg {
         fill: ${theme.lightColor.YELLOW};
-        stroke: ${theme.lightColor.GRAY_DARK};
+        stroke: ${theme.color.GRAY_DARK};
         stroke-width: 10;
       }
     `}
@@ -62,7 +62,8 @@ const ImageAnchor = styled.a`
   height: ${pxToRem(48)};
   margin-right: ${pxToRem(16)};
   border-radius: 50%;
-  outline: 1px solid ${({ theme }) => theme.lightColor.NAVY};
+  background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
+  outline: 1px solid ${({ theme }) => theme.color.NAVY};
 
   & > img {
     width: 100%;
@@ -78,8 +79,12 @@ const RepositoryInfo = styled.div`
 const Name = styled.a`
   font-weight: 600;
   font-size: ${pxToRem(16)};
-  color: ${({ theme }) => theme.color.BLUE_DARK};
+  color: ${({ theme }) => theme.color.POPUP_TEXT};
   text-overflow: ellipsis;
+
+  & .highlighted {
+    color: ${({ theme }) => theme.color.BLUE_DARK};
+  }
 
   &:hover {
     text-decoration: underline;
@@ -115,6 +120,7 @@ const NumericalInfo = styled.p`
     width: ${pxToRem(16)};
     height: ${pxToRem(16)};
     margin-right: ${pxToRem(6)};
+    fill: ${({ theme }) => theme.color.GRAY};
   }
 `;
 
@@ -126,7 +132,12 @@ function RepositoryItem({ item, query }: Props) {
   const {
     name: repo,
     full_name: fullName,
-    owner: { login: owner, avatar_url: imageURL, html_url: ownerURL },
+    owner: {
+      id: ownerId,
+      login: owner,
+      avatar_url: imageURL,
+      html_url: ownerURL
+    },
     html_url: repoURL,
     description,
     stargazers_count: star,
@@ -135,7 +146,11 @@ function RepositoryItem({ item, query }: Props) {
     topics
   } = item;
 
-  const { isFavorite, handleClick } = useRepositoryItem({ owner, repo });
+  const { isFavorite, handleClick } = useRepositoryItem({
+    ownerId,
+    owner,
+    repo
+  });
 
   const highlighted = useHighlight({
     text: fullName,

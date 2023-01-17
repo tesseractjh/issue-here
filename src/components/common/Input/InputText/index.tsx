@@ -26,7 +26,8 @@ const LargeStyle = css`
 `;
 
 const Input = styled.input`
-  background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
+  background-color: ${({ theme }) => theme.color.INPUT_BACKGROUND};
+  color: ${({ theme }) => theme.color.INPUT_TEXT};
 
   &.small {
     ${SmallStyle}

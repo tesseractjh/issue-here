@@ -13,7 +13,6 @@ const Container = styled.ul`
 const NoResult = styled.div`
   ${({ theme }) => theme.placeholder.absoluteCenter}
   font-size: ${pxToRem(16)};
-  color: ${({ theme }) => theme.lightColor.GRAY};
 `;
 
 const FallbackWrapper = styled.div<{ isEmpty: boolean }>`

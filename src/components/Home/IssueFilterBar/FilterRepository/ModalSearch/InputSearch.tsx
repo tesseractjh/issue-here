@@ -14,6 +14,7 @@ const Container = styled.div`
     transform: translateY(-50%);
     width: ${pxToRem(16)};
     height: ${pxToRem(16)};
+    fill: ${({ theme }) => theme.color.INPUT_TEXT};
   }
 
   & input[type='text'] {
