@@ -28,6 +28,15 @@ const Top = styled.div`
 
 const Bottom = styled.ul`
   ${({ theme }) => theme.mixin.flexColumn('flex-start', 'stretch', pxToRem(10))}
+  position: relative;
+  min-height: ${pxToRem(100)};
+`;
+
+const NoResult = styled.div`
+  ${({ theme }) => theme.placeholder.absoluteCenter}
+  width: 100%;
+  font-size: ${pxToRem(16)};
+  text-align: center;
 `;
 
 function FavoriteList() {
@@ -40,7 +49,9 @@ function FavoriteList() {
         즐겨찾기
       </Top>
       <Bottom>
-        {/*  fallback */}
+        {!favorites.length && (
+          <NoResult>즐겨찾기로 등록된 Repository가 없습니다.</NoResult>
+        )}
         {favorites.map((favorite) => (
           <FavoriteItem
             key={`${favorite.owner}-${favorite.repo}`}

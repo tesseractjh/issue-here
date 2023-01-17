@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import pxToRem from '@utils/pxToRem';
 import ButtonSearch from './ButtonSearch';
+import pxToRem from '@utils/pxToRem';
 import FavoriteList from './FavoriteList';
+import Message from './Message';
 import ModalSearch from './ModalSearch';
 import useFilterRepository from './ModalSearch/hooks/useFilterRepository';
 import IssueFilter from '../IssueFilter';
@@ -15,7 +16,6 @@ const Top = styled.div`
   gap: ${pxToRem(10)};
   padding: ${pxToRem(16)};
   border-bottom: 1px solid ${({ theme }) => theme.color.BORDER_DARK};
-  font-size: ${pxToRem(12)};
 `;
 
 const Bottom = styled.div`
@@ -34,7 +34,7 @@ function FitlerRepository() {
       <ModalSearch />
       <Content>
         <Top>
-          Repository를 검색하여 즐겨찾기에 등록하세요!
+          <Message />
           <ButtonSearch />
         </Top>
         <Bottom>
