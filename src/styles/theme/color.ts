@@ -58,10 +58,10 @@ export const darkColor = {
   NAVY_DARK: '#e9edfa',
   NAVY_LIGHT: '#3d58c1',
   GREEN: '#c4eadb',
-  GREEN_DARK: '#00c780',
-  GREEN_LIGHT: '#e7faf3',
+  GREEN_DARK: '#e7faf3',
+  GREEN_LIGHT: '#00c780',
   RED: '#fddfdd',
-  RED_DARK: '#ff4e5b',
-  RED_LIGHT: '#ffeeef',
+  RED_DARK: '#ffeeef',
+  RED_LIGHT: '#ff4e5b',
   YELLOW: '#ffe234'
 };
