@@ -1,10 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import type { FilterRepositoryState } from '@recoil/filter';
+import HiddenText from '@components/common/HiddenText';
 import InputCheckbox from '@components/common/Input/InputCheckbox';
 import { ReactComponent as BinIcon } from '@assets/icons/bin.svg';
-import pxToRem from '@utils/pxToRem';
 import useFavoriteItem from './hooks/useFavoriteItem';
+import pxToRem from '@utils/pxToRem';
 import { URL_GITHUB, URL_GITHUB_AVATAR_IMAGE } from '@constants/URL';
 
 interface Props extends Omit<FilterRepositoryState, 'selected'> {
@@ -129,6 +130,7 @@ function FavoriteItem({ onDelete, ownerId, owner, repo }: Props) {
       </InputCheckbox>
       <ButtonRemoveFavorite onClick={onDelete({ owner, repo })}>
         <BinIcon />
+        <HiddenText>즐겨찾기 삭제</HiddenText>
       </ButtonRemoveFavorite>
     </Container>
   );
