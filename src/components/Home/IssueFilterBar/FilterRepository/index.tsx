@@ -27,12 +27,13 @@ const Bottom = styled.div`
 `;
 
 function FitlerRepository() {
-  const handleClose = useFilterRepository();
+  const { handleClear, handleClose } = useFilterRepository();
 
   return (
     <IssueFilter
       id="repository"
       triggerContent="Repository"
+      onClear={handleClear}
       onClose={handleClose}
     >
       <ModalSearch />
