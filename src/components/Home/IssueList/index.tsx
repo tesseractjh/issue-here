@@ -13,6 +13,12 @@ const Container = styled.div`
   `)}
 `;
 
+const NoResult = styled.div`
+  ${({ theme }) => theme.mixin.flex()}
+  height: ${pxToRem(300)};
+  font-size: ${pxToRem(16)};
+`;
+
 const List = styled.ul`
   border-top: 1px solid ${({ theme }) => theme.color.BLUE_DARK};
   border-bottom: 1px solid ${({ theme }) => theme.color.BLUE_DARK};
@@ -28,6 +34,7 @@ function IssueList() {
   return (
     <Container>
       <List>
+        {!issues.length && <NoResult>등록된 이슈가 없습니다.</NoResult>}
         {issues.map((issue) => (
           <IssueItem key={issue.node_id} issue={issue} />
         ))}
