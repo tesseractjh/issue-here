@@ -11,6 +11,11 @@ const Background = styled.div`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(${pxToRem(2)});
+
+  ${({ theme }) =>
+    theme.media.tablet(`
+      display: none;
+  `)}
 `;
 
 function ModalBackground() {

@@ -30,16 +30,6 @@ const SpinnerQuarter = styled.span<{ delay?: number }>`
   border-radius: 50%;
   animation: ${spinnerAnimation} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   animation-delay: ${({ delay }) => delay ?? 0}s;
-
-  ${({ theme }) =>
-    theme.media.tablet(`
-    border-width: ${pxToRem(8)};
-  `)}
-
-  ${({ theme }) =>
-    theme.media.mobile(`
-    border-width: ${pxToRem(6)};
-  `)}
 `;
 
 function Spinner() {

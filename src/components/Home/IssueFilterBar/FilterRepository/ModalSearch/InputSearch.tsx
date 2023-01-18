@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import InputText from '@components/common/Input/InputText';
 import { ReactComponent as MagIcon } from '@assets/icons/mag.svg';
 import pxToRem from '@utils/pxToRem';
@@ -25,6 +25,16 @@ const Container = styled.div`
       fill: ${({ theme }) => theme.lightColor.BLUE};
     }
   }
+
+  ${({ theme }) =>
+    theme.media.tablet(css`
+      padding: ${pxToRem(0, 10)};
+      margin-top: ${pxToRem(20)};
+
+      & > svg {
+        left: ${pxToRem(20)};
+      }
+    `)}
 `;
 
 function InputSearch() {

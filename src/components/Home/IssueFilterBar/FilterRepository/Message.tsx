@@ -4,6 +4,11 @@ import useMessage from './hooks/useMessage';
 
 const Container = styled.span`
   font-size: ${pxToRem(12)};
+
+  ${({ theme }) =>
+    theme.media.tablet(`
+      display: none;
+  `)}
 `;
 
 function Message() {

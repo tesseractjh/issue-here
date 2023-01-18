@@ -1,6 +1,6 @@
 import IssueFilterBar from '@components/Home/IssueFilterBar';
-import InnerWrapper from '@components/InnerWrapper';
 import Layout from '@components/Layout';
+import InnerWrapper from '@components/common/InnerWrapper';
 
 function Home() {
   return (

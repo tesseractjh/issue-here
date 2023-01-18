@@ -2,7 +2,7 @@ import useScroll from '@hooks/useScroll';
 
 function useHeader() {
   useScroll({
-    height: 160,
+    height: 120,
     callback: (isScrolled) => {
       const root = document.getElementById('root');
       if (!root) {

@@ -1,50 +1,22 @@
-import styled, { css, keyframes } from 'styled-components';
-import InnerWrapper from '@components/InnerWrapper';
+import styled, { css } from 'styled-components';
+import InnerWrapper from '@components/common/InnerWrapper';
 import { ReactComponent as GithubIcon } from '@assets/icons/github.svg';
 import pxToRem from '@utils/pxToRem';
 import { HEADER_HEIGHT_DESKTOP, HEADER_HEIGHT_TABLET } from '@constants/style';
 import SwitchTheme from './ThemeSwitch';
 import useHeader from '../hooks/useHeader';
 
-const Animation = keyframes`
-  from {
-    transform: translate3d(0, ${pxToRem(-60)}, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-`;
-
-const FixedContainerStyle = css`
-  position: fixed;
-  top: 0;
-  transform: translate3d(0, 0, 0);
-  z-index: 110;
-  width: 100%;
-  padding: 0;
-  animation: ${Animation} 0.2s ease-in-out;
-`;
-
-const FixedWrapperStyle = css`
-  justify-content: flex-start;
-  height: ${pxToRem(HEADER_HEIGHT_DESKTOP - 1)};
-  font-size: ${pxToRem(32)};
-
-  & svg {
-    width: ${pxToRem(32)};
-    height: ${pxToRem(32)};
-    margin-right: ${pxToRem(12)};
-  }
-`;
-
 const Container = styled.header`
+  position: sticky;
+  top: ${pxToRem(-120)};
+  z-index: 100;
+  padding-top: ${pxToRem(79)};
   border-bottom: 1px solid ${({ theme }) => theme.color.BORDER};
-  padding-top: ${pxToRem(80)};
   background-color: ${({ theme }) => theme.color.WHITE};
   color: ${({ theme }) => theme.color.NAVY};
 
   .header-fixed & {
-    ${FixedContainerStyle}
+    padding-top: ${pxToRem(120)};
   }
 
   & > div {
@@ -60,10 +32,10 @@ const Container = styled.header`
 
   ${({ theme }) =>
     theme.media.tablet(css`
-      ${FixedContainerStyle}
-
-      &, .header-fixed & {
-        animation: none;
+      &,
+      .header-fixed & {
+        top: 0;
+        padding-top: 0;
       }
 
       & > div {
@@ -93,14 +65,21 @@ const LogoWrapper = styled.div`
   }
 
   .header-fixed & {
-    ${FixedWrapperStyle}
+    justify-content: flex-start;
+    height: ${pxToRem(HEADER_HEIGHT_DESKTOP - 1)};
+    font-size: ${pxToRem(32)};
+
+    & svg {
+      width: ${pxToRem(32)};
+      height: ${pxToRem(32)};
+      margin-right: ${pxToRem(12)};
+    }
   }
 
   ${({ theme }) =>
     theme.media.tablet(css`
-      ${FixedWrapperStyle}
-
-      &, .header-fixed & {
+      &,
+      .header-fixed & {
         height: ${pxToRem(HEADER_HEIGHT_TABLET - 1)};
         font-size: ${pxToRem(24)};
 

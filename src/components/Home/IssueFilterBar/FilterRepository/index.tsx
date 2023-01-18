@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import ButtonSearch from './ButtonSearch';
 import FavoriteList from './FavoriteList';
 import pxToRem from '@utils/pxToRem';
@@ -9,11 +9,16 @@ import IssueFilter from '../IssueFilter';
 
 const Content = styled.div`
   width: ${pxToRem(360)};
+
+  ${({ theme }) =>
+    theme.media.tablet(css`
+      ${theme.mixin.flexColumn('flext-start', 'stretch')}
+      width: 100%;
+      height: 100%;
+    `)}
 `;
 
 const Top = styled.div`
-  ${({ theme }) => theme.mixin.flexColumn()}
-  gap: ${pxToRem(10)};
   padding: ${pxToRem(16)};
   border-bottom: 1px solid ${({ theme }) => theme.color.BORDER_DARK};
 
@@ -24,6 +29,11 @@ const Top = styled.div`
 
 const Bottom = styled.div`
   padding: ${pxToRem(16)};
+
+  ${({ theme }) =>
+    theme.media.tablet(css`
+      height: calc(100vh - ${pxToRem(130)});
+    `)}
 `;
 
 function FitlerRepository() {

@@ -1,6 +1,6 @@
-import styled, { css, keyframes } from 'styled-components';
-import InnerWrapper from '@components/InnerWrapper';
+import styled, { css } from 'styled-components';
 import HiddenText from '@components/common/HiddenText';
+import InnerWrapper from '@components/common/InnerWrapper';
 import pxToRem from '@utils/pxToRem';
 import {
   HEADER_HEIGHT_DESKTOP,
@@ -9,45 +9,16 @@ import {
 } from '@constants/style';
 import FitlerRepository from './FilterRepository';
 
-const Animation = keyframes`
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  30% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(0, ${pxToRem(HEADER_HEIGHT_DESKTOP)}, 0);
-  }
-`;
-
-const FixedContainerStyle = (headerHeight: number) => css`
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform: translate3d(0, ${pxToRem(headerHeight)}, 0);
-  z-index: 100;
-  width: 100%;
-  animation: ${Animation} 0.25s ease-in-out;
-`;
-
 const Container = styled.div`
+  position: sticky;
+  top: ${pxToRem(HEADER_HEIGHT_DESKTOP)};
+  z-index: 110;
   background-color: ${({ theme }) => theme.color.BACKGROUND_LIGHT};
   box-shadow: 0 2px 10px 0 ${({ theme }) => theme.color.BOX_SHADOW_LIGHT};
 
-  .header-fixed & {
-    ${FixedContainerStyle(HEADER_HEIGHT_DESKTOP)}
-  }
-
   ${({ theme }) =>
     theme.media.tablet(css`
-      &,
-      .header-fixed & {
-        ${FixedContainerStyle(HEADER_HEIGHT_TABLET)}
-        animation: none;
-      }
+      top: ${pxToRem(HEADER_HEIGHT_TABLET)};
     `)}
 `;
 
