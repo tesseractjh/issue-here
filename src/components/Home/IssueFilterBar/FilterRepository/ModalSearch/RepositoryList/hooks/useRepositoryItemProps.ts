@@ -8,7 +8,7 @@ function useRepositoryItemProps() {
   const setFavorite = useRecoilCallback(
     ({ snapshot }) =>
       async (
-        { owner, repo }: FilterRepositoryState,
+        { owner, repo }: Pick<FilterRepositoryState, 'owner' | 'repo'>,
         setter: React.Dispatch<React.SetStateAction<boolean>>
       ) => {
         const repos = await snapshot.getPromise(filterRepositoryState);
@@ -24,7 +24,7 @@ function useRepositoryItemProps() {
   const toggleFavorite = useRecoilCallback(
     ({ snapshot, set }) =>
       async (
-        repoState: FilterRepositoryState,
+        repoState: Pick<FilterRepositoryState, 'ownerId' | 'owner' | 'repo'>,
         setter: React.Dispatch<React.SetStateAction<boolean>>
       ) => {
         const repos = await snapshot.getPromise(filterRepositoryState);
@@ -47,7 +47,10 @@ function useRepositoryItemProps() {
             return;
           }
 
-          set(filterRepositoryState, (prev) => [...prev, { ...repoState }]);
+          set(filterRepositoryState, (prev) => [
+            ...prev,
+            { ...repoState, selected: true }
+          ]);
           setter(true);
         };
       },

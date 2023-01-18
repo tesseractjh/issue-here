@@ -40,7 +40,7 @@ const NoResult = styled.div`
 `;
 
 function FavoriteList() {
-  const { favorites, handleClick } = useFavoriteList();
+  const { favorites, handleDelete } = useFavoriteList();
 
   return (
     <Container>
@@ -55,7 +55,7 @@ function FavoriteList() {
         {favorites.map((favorite) => (
           <FavoriteItem
             key={`${favorite.owner}-${favorite.repo}`}
-            onClick={handleClick}
+            onDelete={handleDelete}
             {...favorite}
           />
         ))}

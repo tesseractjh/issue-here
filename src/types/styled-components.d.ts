@@ -5,6 +5,7 @@ import * as placeholder from '@styles/theme/placeholder';
 
 declare module 'styled-components' {
   type Color = {
+    INPUT_CHECKED: string;
     POPUP_TEXT: string;
     INPUT_TEXT: string;
     POPUP_BACKGROUND: string;

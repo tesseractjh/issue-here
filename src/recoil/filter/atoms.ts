@@ -5,6 +5,7 @@ export type FilterRepositoryState = {
   ownerId: number;
   owner: string;
   repo: string;
+  selected: boolean;
 };
 
 export const filterRepositoryState = atom<FilterRepositoryState[]>({

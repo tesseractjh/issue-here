@@ -3,13 +3,13 @@ import type { FilterRepositoryState } from '@recoil/filter';
 import useComponentDidMount from '@hooks/useComponentDidMount';
 
 interface Params {
-  targetRepo: FilterRepositoryState;
+  targetRepo: Pick<FilterRepositoryState, 'ownerId' | 'owner' | 'repo'>;
   setFavorite: (
-    repoState: FilterRepositoryState,
+    repoState: Pick<FilterRepositoryState, 'owner' | 'repo'>,
     setter: React.Dispatch<React.SetStateAction<boolean>>
   ) => Promise<void>;
   toggleFavorite: (
-    repoState: FilterRepositoryState,
+    repoState: Pick<FilterRepositoryState, 'ownerId' | 'owner' | 'repo'>,
     setter: React.Dispatch<React.SetStateAction<boolean>>
   ) => Promise<React.MouseEventHandler>;
 }

@@ -6,7 +6,7 @@ import { filterRepositoryState } from '@recoil/filter';
 function useFavoriteList() {
   const [favorites, setFavorites] = useRecoilState(filterRepositoryState);
 
-  const handleClick = useCallback(
+  const handleDelete = useCallback(
     ({
         owner: curOwner,
         repo: curRepo
@@ -22,7 +22,7 @@ function useFavoriteList() {
     [setFavorites]
   );
 
-  return { favorites, handleClick };
+  return { favorites, handleDelete };
 }
 
 export default useFavoriteList;

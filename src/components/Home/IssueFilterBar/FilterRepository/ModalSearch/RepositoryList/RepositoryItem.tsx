@@ -15,11 +15,11 @@ interface Props {
   item: Github.Repository;
   query: string;
   setFavorite: (
-    repoState: FilterRepositoryState,
+    repoState: Pick<FilterRepositoryState, 'owner' | 'repo'>,
     setter: React.Dispatch<React.SetStateAction<boolean>>
   ) => Promise<void>;
   toggleFavorite: (
-    repoState: FilterRepositoryState,
+    repoState: Pick<FilterRepositoryState, 'ownerId' | 'owner' | 'repo'>,
     setter: React.Dispatch<React.SetStateAction<boolean>>
   ) => Promise<React.MouseEventHandler>;
 }
