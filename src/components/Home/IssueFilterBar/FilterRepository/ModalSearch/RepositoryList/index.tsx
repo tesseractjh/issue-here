@@ -10,6 +10,7 @@ import { MODAL_HEADER_HEIGHT } from '@constants/style';
 const Container = styled.ul`
   overflow-y: auto;
   overscroll-behavior: contain;
+  position: relative;
   height: ${pxToRem(400)};
   padding: ${pxToRem(0, 10)};
   margin-top: ${pxToRem(10)};
@@ -39,11 +40,6 @@ const FallbackWrapper = styled.div<{ isEmpty: boolean }>`
   height: ${pxToRem(100)};
 
   ${({ isEmpty, theme }) => isEmpty && theme.placeholder.absoluteCenter}
-
-  ${({ theme }) =>
-    theme.media.tablet(css`
-      margin-bottom: ${pxToRem(80)};
-    `)}
 `;
 
 function RepositoryList() {
