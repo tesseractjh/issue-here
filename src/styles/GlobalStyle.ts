@@ -107,6 +107,15 @@ const GlobalStyle = createGlobalStyle`
     border: 0;
     clip: rect(0,0,0,0);
   }
+
+  body.prevent-scroll-modal, body.prevent-scroll-popup {
+    ${({ theme }) =>
+      theme.media.tablet(`
+        overflow: hidden;
+        touch-action: none;
+        overscroll-behavior: none;
+    `)}
+  }
 `;
 
 export default GlobalStyle;

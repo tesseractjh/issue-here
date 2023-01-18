@@ -6,15 +6,14 @@ import RepositoryList from './RepositoryList';
 import useModalSearch from './hooks/useModalSearch';
 
 const Content = styled.div`
+  ${({ theme }) => theme.mixin.flexColumn('flex-start', 'stretch')}
   width: ${pxToRem(600)};
-`;
 
-const Scroll = styled.div`
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  position: relative;
-  height: ${pxToRem(400)};
-  margin-top: ${pxToRem(20)};
+  ${({ theme }) =>
+    theme.media.tablet(`
+    flex: 1;
+      width: 100%;
+  `)}
 `;
 
 function ModalSearch() {
@@ -24,9 +23,7 @@ function ModalSearch() {
     <Modal {...modalProps}>
       <Content>
         <InputSearchRepository />
-        <Scroll>
-          <RepositoryList />
-        </Scroll>
+        <RepositoryList />
       </Content>
     </Modal>
   );

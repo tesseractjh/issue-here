@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ReactComponent as StarIcon } from '@assets/icons/star.svg';
 import pxToRem from '@utils/pxToRem';
 import FavoriteItem from './FavoriteItem';
@@ -7,6 +7,13 @@ import useFavoriteList from './hooks/useFavoriteList';
 const Container = styled.div`
   overflow-y: auto;
   max-height: ${pxToRem(400)};
+
+  ${({ theme }) =>
+    theme.media.tablet(css`
+      ${theme.mixin.flexColumn('flex-start', 'stretch')}
+      max-height: none;
+      height: 100%;
+    `)}
 `;
 
 const Top = styled.div`
@@ -30,6 +37,11 @@ const Bottom = styled.ul`
   ${({ theme }) => theme.mixin.flexColumn('flex-start', 'stretch', pxToRem(10))}
   position: relative;
   min-height: ${pxToRem(100)};
+
+  ${({ theme }) =>
+    theme.media.tablet(css`
+      flex: 1;
+    `)}
 `;
 
 const NoResult = styled.div`
@@ -37,6 +49,11 @@ const NoResult = styled.div`
   width: 100%;
   font-size: ${pxToRem(14)};
   text-align: center;
+
+  ${({ theme }) =>
+    theme.media.tablet(css`
+      flex: 1;
+    `)}
 `;
 
 function FavoriteList() {

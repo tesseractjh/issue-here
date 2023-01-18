@@ -52,6 +52,13 @@ const ButtonAddFavorite = styled.button<{ isFavorite: boolean }>`
         stroke-width: 10;
       }
     `}
+
+  ${({ theme }) =>
+    theme.media.tablet(css`
+      width: ${pxToRem(24)};
+      height: ${pxToRem(24)};
+      margin-right: ${pxToRem(8)};
+    `)}
 `;
 
 const Repository = styled.div`

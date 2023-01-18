@@ -1,14 +1,32 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
 import Spinner from '@components/common/Spinner';
 import RepositoryItem from './RepositoryItem';
 import pxToRem from '@utils/pxToRem';
 import useRepositoryItemProps from './hooks/useRepositoryItemProps';
 import useRepositoryList from './hooks/useRepositoryList';
+import { MODAL_HEADER_HEIGHT } from '@constants/style';
 
 const Container = styled.ul`
-  ${({ theme }) => theme.mixin.flexColumn('flex-start', 'stretch', pxToRem(10))}
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  height: ${pxToRem(400)};
   padding: ${pxToRem(0, 10)};
+  margin-top: ${pxToRem(10)};
+
+  & > li:not(:first-child) {
+    margin-top: ${pxToRem(10)};
+  }
+
+  ${({ theme }) =>
+    theme.media.tablet(css`
+      height: calc(100vh - ${pxToRem(MODAL_HEADER_HEIGHT)});
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    `)}
 `;
 
 const NoResult = styled.div`
@@ -18,9 +36,14 @@ const NoResult = styled.div`
 
 const FallbackWrapper = styled.div<{ isEmpty: boolean }>`
   ${({ theme }) => theme.mixin.flex()}
-  text-align: center;
+  height: ${pxToRem(100)};
 
   ${({ isEmpty, theme }) => isEmpty && theme.placeholder.absoluteCenter}
+
+  ${({ theme }) =>
+    theme.media.tablet(css`
+      margin-bottom: ${pxToRem(80)};
+    `)}
 `;
 
 function RepositoryList() {

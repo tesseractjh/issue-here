@@ -8,7 +8,7 @@ function useModalSearch() {
   const [isOpen, setIsOpen] = useRecoilState(modalState('searchRepository'));
   const onClose = useCallback(() => setQuery(''), [setQuery]);
 
-  return { isOpen, setIsOpen, onClose };
+  return { name: 'Repository 검색', isOpen, setIsOpen, onClose };
 }
 
 export default useModalSearch;
