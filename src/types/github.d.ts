@@ -1,5 +1,5 @@
 export namespace Github {
-  export type Owner = {
+  export type User = {
     id: number;
     node_id: string;
     login: string;
@@ -11,7 +11,7 @@ export namespace Github {
     node_id: string;
     name: string;
     full_name: string;
-    owner: Owner;
+    owner: User;
     html_url: string;
     description: string;
     stargazers_count: number;
@@ -26,7 +26,7 @@ export namespace Github {
     items: Repository[];
   }
 
-  export interface ParamsRepository {
+  export interface Params {
     q: string;
     page: number;
   }
@@ -34,27 +34,27 @@ export namespace Github {
   export type State = 'open' | 'closed';
   export type Sort = 'created' | 'updated' | 'comments';
   export type Order = 'asc' | 'desc';
-  export type User = {
-    node_id: string;
-    login: string;
-  };
 
   export interface Issue {
     node_id: string;
     html_url: string;
+    repository_url: string;
     number: number;
+    title: string;
     user: User;
     state: State;
     comments: number;
-    updated_at: string;
+    created_at: string;
     closed_at: string | null;
   }
 
   export interface ResponseSearchIssue {
-    html_url: string;
+    total_count: number;
+    incomplete_results: boolean;
+    items: Issue[];
   }
 
-  export interface ParamsIssue {
+  export interface IssueFilter {
     repositories: string[];
     // state: State;
     // title: string;

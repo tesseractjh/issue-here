@@ -1,4 +1,5 @@
 export const lightColor = {
+  HOVER_BACKGROUND: '#e9edfa',
   INPUT_CHECKED: '#5162ff',
   POPUP_TEXT: '#3d58c1',
   INPUT_TEXT: '#111111',
@@ -34,6 +35,7 @@ export const lightColor = {
 } as const;
 
 export const darkColor = {
+  HOVER_BACKGROUND: '#171612',
   INPUT_CHECKED: '#ddddff',
   POPUP_TEXT: '#ddddff',
   INPUT_TEXT: '#e9edfa',

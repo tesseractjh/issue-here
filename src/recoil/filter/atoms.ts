@@ -9,7 +9,7 @@ export type FilterRepositoryState = {
   selected: boolean;
 };
 
-export type FilterState = Omit<Github.ParamsIssue, 'page'>;
+export type FilterState = Omit<Github.IssueFilter, 'page'>;
 
 export const filterRepositoryState = atom<FilterRepositoryState[]>({
   key: 'filterRepositoryState',

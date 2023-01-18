@@ -20,7 +20,7 @@ const Container = styled.ul`
 
   ${({ theme }) =>
     theme.media.tablet(css`
-      height: calc(100vh - ${pxToRem(MODAL_HEADER_HEIGHT)});
+      height: calc(100vh - ${pxToRem(70 + MODAL_HEADER_HEIGHT)});
       scrollbar-width: none;
 
       &::-webkit-scrollbar {

@@ -1,5 +1,5 @@
+import useIssueFilter from '@hooks/useIssueFilter';
 import Filter from '@components/common/Filter';
-import useIssueFilter from './hooks/useIssueFilter';
 
 interface Props extends React.PropsWithChildren {
   id: string;
