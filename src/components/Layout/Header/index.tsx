@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
-import InnerWrapper from '@components/InnerWrapper';
+import InnerWrapper from '@components/common/InnerWrapper';
 import { ReactComponent as GithubIcon } from '@assets/icons/github.svg';
 import pxToRem from '@utils/pxToRem';
 import { HEADER_HEIGHT_DESKTOP, HEADER_HEIGHT_TABLET } from '@constants/style';

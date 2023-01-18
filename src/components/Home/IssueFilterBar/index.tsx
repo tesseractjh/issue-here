@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
-import InnerWrapper from '@components/InnerWrapper';
 import HiddenText from '@components/common/HiddenText';
+import InnerWrapper from '@components/common/InnerWrapper';
 import pxToRem from '@utils/pxToRem';
 import {
   HEADER_HEIGHT_DESKTOP,
