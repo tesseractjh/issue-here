@@ -35,7 +35,7 @@ const Bottom = styled.ul`
 const NoResult = styled.div`
   ${({ theme }) => theme.placeholder.absoluteCenter}
   width: 100%;
-  font-size: ${pxToRem(16)};
+  font-size: ${pxToRem(14)};
   text-align: center;
 `;
 

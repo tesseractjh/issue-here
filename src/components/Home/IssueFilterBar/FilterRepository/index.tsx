@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ButtonSearch from './ButtonSearch';
-import pxToRem from '@utils/pxToRem';
 import FavoriteList from './FavoriteList';
+import pxToRem from '@utils/pxToRem';
 import Message from './Message';
 import ModalSearch from './ModalSearch';
 import useFilterRepository from './ModalSearch/hooks/useFilterRepository';
@@ -16,6 +16,10 @@ const Top = styled.div`
   gap: ${pxToRem(10)};
   padding: ${pxToRem(16)};
   border-bottom: 1px solid ${({ theme }) => theme.color.BORDER_DARK};
+
+  & > button {
+    width: 100%;
+  }
 `;
 
 const Bottom = styled.div`
