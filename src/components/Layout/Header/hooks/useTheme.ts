@@ -1,5 +1,5 @@
 import { useRecoilState } from 'recoil';
-import { themeState } from '@recoil/theme/atoms';
+import { themeState } from '@recoil/theme';
 
 function useTheme() {
   const [theme, setTheme] = useRecoilState(themeState);

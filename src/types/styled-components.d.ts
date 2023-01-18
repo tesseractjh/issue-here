@@ -1,9 +1,17 @@
 import 'styled-components';
 import media from '@styles/theme/media';
 import * as mixin from '@styles/theme/mixin';
+import * as placeholder from '@styles/theme/placeholder';
 
 declare module 'styled-components' {
   type Color = {
+    INPUT_CHECKED: string;
+    POPUP_TEXT: string;
+    INPUT_TEXT: string;
+    POPUP_BACKGROUND: string;
+    ITEM_BACKGROUND: string;
+    INPUT_BACKGROUND: string;
+    INPUT_BACKGROUND_DARK: string;
     BACKGROUND: string;
     BACKGROUND_DARK: string;
     BACKGROUND_LIGHT: string;
@@ -11,6 +19,7 @@ declare module 'styled-components' {
     BORDER_DARK: string;
     INACTIVE: string;
     BOX_SHADOW: string;
+    BOX_SHADOW_LIGHT: string;
     WHITE: string;
     GRAY: string;
     GRAY_DARK: string;
@@ -27,12 +36,14 @@ declare module 'styled-components' {
     RED: string;
     RED_DARK: string;
     RED_LIGHT: string;
+    YELLOW: string;
   };
 
   interface DefaultTheme {
     color: Color;
     media: typeof media;
     mixin: typeof mixin;
+    placeholder: typeof placeholder;
     lightColor: Color;
     darkColor: Color;
   }

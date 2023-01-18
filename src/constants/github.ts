@@ -1,0 +1,1 @@
+export const GITHUB_REPOSITORY_PER_PAGE = 10;

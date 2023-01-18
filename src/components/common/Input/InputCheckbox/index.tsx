@@ -62,15 +62,15 @@ const Container = styled.label`
   }
 
   &:hover .box {
-    background-color: ${({ theme }) => theme.lightColor.BLUE_LIGHT};
+    background-color: ${({ theme }) => theme.color.BLUE_LIGHT};
 
     & svg {
-      fill: ${({ theme }) => theme.lightColor.GRAY_DARK};
+      fill: ${({ theme }) => theme.color.GRAY_DARK};
     }
   }
 
   &:active .box {
-    background-color: ${({ theme }) => theme.lightColor.BORDER_DARK};
+    background-color: ${({ theme }) => theme.color.BORDER_DARK};
   }
 `;
 
@@ -79,17 +79,17 @@ const CheckBox = styled.span<{ checked?: boolean }>`
   padding: ${pxToRem(2)};
   border: 1px solid ${({ theme }) => theme.lightColor.BLUE_DARK};
   border-radius: ${pxToRem(4)};
-  background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
+  background-color: ${({ theme }) => theme.color.INPUT_BACKGROUND};
 
   & svg {
     visibility: hidden;
-    fill: ${({ theme }) => theme.lightColor.WHITE};
+    fill: ${({ theme }) => theme.color.WHITE};
   }
 
   ${({ checked, theme }) =>
     checked &&
     css`
-      background-color: ${theme.lightColor.BLUE};
+      background-color: ${theme.color.INPUT_CHECKED};
 
       & svg {
         visibility: visible;

@@ -1,6 +1,6 @@
 import { useRecoilValue } from 'recoil';
 import { ThemeProvider as StyledComponentProvider } from 'styled-components';
-import { themeState } from '@recoil/theme/atoms';
+import { themeState } from '@recoil/theme';
 import GlobalStyle from '@styles/GlobalStyle';
 import theme from '@styles/theme';
 

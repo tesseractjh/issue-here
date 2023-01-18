@@ -4,25 +4,31 @@ interface Params {
   id: string;
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  handleClose?: () => void;
 }
 
-function usePopup({ id, isOpen, setIsOpen }: Params) {
+function usePopup({ id, isOpen, setIsOpen, handleClose }: Params) {
   const handleDocumentClick = useCallback(
     ({ target }: MouseEvent) => {
-      if (!(target instanceof Element) || target.closest(`#${id}`)) {
+      if (
+        !(target instanceof Element) ||
+        target.closest(`#${id}`) ||
+        target.closest('.modal')
+      ) {
         return;
       }
       setIsOpen(false);
+      handleClose?.();
     },
-    [id, setIsOpen]
+    [id, setIsOpen, handleClose]
   );
 
   useEffect(() => {
     if (isOpen) {
-      document.addEventListener('click', handleDocumentClick);
+      document.addEventListener('mousedown', handleDocumentClick);
     }
     return () => {
-      document.removeEventListener('click', handleDocumentClick);
+      document.removeEventListener('mousedown', handleDocumentClick);
     };
   }, [isOpen, handleDocumentClick]);
 }

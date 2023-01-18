@@ -26,7 +26,8 @@ const LargeStyle = css`
 `;
 
 const Input = styled.input`
-  background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
+  background-color: ${({ theme }) => theme.color.INPUT_BACKGROUND};
+  color: ${({ theme }) => theme.color.INPUT_TEXT};
 
   &.small {
     ${SmallStyle}
@@ -41,12 +42,18 @@ const Input = styled.input`
   }
 
   &.outlined {
-    border: 2px solid ${({ theme }) => theme.color.BLUE_DARK};
+    border: 2px solid ${({ theme }) => theme.lightColor.NAVY};
+
+    &:focus {
+      border-color: ${({ theme }) => theme.lightColor.BLUE};
+    }
   }
 `;
 
 function InputText({ size, variant, ...attributes }: Props) {
-  return <Input className={`${size} ${variant ?? ''}`} {...attributes} />;
+  return (
+    <Input type="text" className={`${size} ${variant ?? ''}`} {...attributes} />
+  );
 }
 
 export default InputText;

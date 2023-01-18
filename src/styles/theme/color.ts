@@ -1,4 +1,11 @@
 export const lightColor = {
+  INPUT_CHECKED: '#5162ff',
+  POPUP_TEXT: '#3d58c1',
+  INPUT_TEXT: '#111111',
+  POPUP_BACKGROUND: '#ffffff',
+  ITEM_BACKGROUND: '#ffffff',
+  INPUT_BACKGROUND: '#ffffff',
+  INPUT_BACKGROUND_DARK: '#e9edfa',
   BACKGROUND: '#ffffff',
   BACKGROUND_DARK: '#f2f2f2',
   BACKGROUND_LIGHT: '#f9fafe',
@@ -6,6 +13,7 @@ export const lightColor = {
   BORDER_DARK: '#d8defa',
   INACTIVE: '#dadada',
   BOX_SHADOW: '#00000026',
+  BOX_SHADOW_LIGHT: '#5162ff26',
   WHITE: '#ffffff',
   GRAY: '#333333',
   GRAY_DARK: '#111111',
@@ -21,10 +29,18 @@ export const lightColor = {
   GREEN_LIGHT: '#e7faf3',
   RED: '#fddfdd',
   RED_DARK: '#ff4e5b',
-  RED_LIGHT: '#ffeeef'
+  RED_LIGHT: '#ffeeef',
+  YELLOW: '#ffe234'
 } as const;
 
 export const darkColor = {
+  INPUT_CHECKED: '#ddddff',
+  POPUP_TEXT: '#ddddff',
+  INPUT_TEXT: '#e9edfa',
+  POPUP_BACKGROUND: '#1e1e1e',
+  ITEM_BACKGROUND: '#171612',
+  INPUT_BACKGROUND: '#111111',
+  INPUT_BACKGROUND_DARK: '#222244',
   BACKGROUND: '#1e1e1e',
   BACKGROUND_DARK: '#1e1e1e',
   BACKGROUND_LIGHT: '#171612',
@@ -32,6 +48,7 @@ export const darkColor = {
   BORDER_DARK: '#767894',
   INACTIVE: '#dadada',
   BOX_SHADOW: '#ffffff26',
+  BOX_SHADOW_LIGHT: '#3d58c126',
   WHITE: '#111111',
   GRAY: '#bbbbbb',
   GRAY_DARK: '#ffffff',
@@ -43,9 +60,10 @@ export const darkColor = {
   NAVY_DARK: '#e9edfa',
   NAVY_LIGHT: '#3d58c1',
   GREEN: '#c4eadb',
-  GREEN_DARK: '#00c780',
-  GREEN_LIGHT: '#e7faf3',
+  GREEN_DARK: '#e7faf3',
+  GREEN_LIGHT: '#00c780',
   RED: '#fddfdd',
-  RED_DARK: '#ff4e5b',
-  RED_LIGHT: '#ffeeef'
+  RED_DARK: '#ffeeef',
+  RED_LIGHT: '#ff4e5b',
+  YELLOW: '#ffe234'
 };

@@ -1,6 +1,11 @@
 import { useCallback, useMemo, useState } from 'react';
 
-function useFilter(id: string) {
+interface Params {
+  id: string;
+  handleClose?: () => void;
+}
+
+function useFilter({ id, handleClose }: Params) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = useCallback(() => {
@@ -8,8 +13,8 @@ function useFilter(id: string) {
   }, []);
 
   const value = useMemo(
-    () => ({ id, isOpen, setIsOpen, handleClick }),
-    [id, isOpen, handleClick]
+    () => ({ id, isOpen, setIsOpen, handleClick, handleClose }),
+    [id, isOpen, handleClick, handleClose]
   );
 
   return value;

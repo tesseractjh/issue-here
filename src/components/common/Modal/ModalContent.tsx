@@ -11,8 +11,9 @@ const Container = styled.div`
   transform: translate(-50%, -50%);
   z-index: 1000;
   padding: ${pxToRem(20)};
+  border: 1px solid ${({ theme }) => theme.color.BORDER_DARK};
   border-radius: ${pxToRem(8)};
-  background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
+  background-color: ${({ theme }) => theme.color.POPUP_BACKGROUND};
 `;
 
 const Top = styled.div`
@@ -28,6 +29,7 @@ const ButtonClose = styled.button`
   & svg {
     width: ${pxToRem(20)};
     height: ${pxToRem(20)};
+    fill: ${({ theme }) => theme.color.GRAY};
   }
 
   &:hover {
@@ -42,7 +44,7 @@ function ModalContent({ children }: React.PropsWithChildren) {
   const { handleClose } = useModalContext();
 
   return (
-    <Container>
+    <Container className="modal">
       <Top>
         <ButtonClose onClick={handleClose}>
           <XmarkIcon />

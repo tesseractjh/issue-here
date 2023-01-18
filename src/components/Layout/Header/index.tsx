@@ -19,7 +19,7 @@ const FixedContainerStyle = css`
   position: fixed;
   top: 0;
   transform: translate3d(0, 0, 0);
-  z-index: 100;
+  z-index: 110;
   width: 100%;
   padding: 0;
   animation: ${Animation} 0.2s ease-in-out;

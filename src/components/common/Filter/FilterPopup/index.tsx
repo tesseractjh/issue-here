@@ -17,25 +17,24 @@ const Container = styled.div`
   left: 0;
   z-index: 10;
   width: fit-content;
-  border: 1px solid ${({ theme }) => theme.lightColor.BORDER_DARK};
+  border: 1px solid ${({ theme }) => theme.color.BORDER_DARK};
   border-radius: ${pxToRem(4)};
-  background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
+  background-color: ${({ theme }) => theme.color.POPUP_BACKGROUND};
   box-shadow: 0 12px 24px 0 ${({ theme }) => theme.color.BOX_SHADOW};
 `;
 
 const Top = styled.div`
-  padding: ${pxToRem(16)};
-  border-bottom: 1px solid ${({ theme }) => theme.lightColor.BORDER_DARK};
+  border-bottom: 1px solid ${({ theme }) => theme.color.BORDER_DARK};
 `;
 
 const Bottom = styled.div`
   ${({ theme }) => theme.mixin.flex('flex-end', 'center', pxToRem(16))}
-  padding: ${pxToRem(16)};
+  padding: ${pxToRem(12, 16)};
 `;
 
 function FilterPopup({ onClear, onApply, children }: Props) {
-  const { id, isOpen, setIsOpen } = useFilterContext();
-  usePopup({ id, isOpen, setIsOpen });
+  const { id, isOpen, setIsOpen, handleClose } = useFilterContext();
+  usePopup({ id, isOpen, setIsOpen, handleClose });
 
   if (!isOpen) {
     return null;

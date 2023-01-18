@@ -42,9 +42,14 @@ const LargeStyle = css`
 
 const StyledButton = styled.button<{ colorTheme: ButtonPropsBase['theme'] }>`
   display: inline-block;
-  background-color: ${({ theme }) => theme.lightColor.BACKGROUND};
-  color: ${({ theme }) => theme.lightColor.GRAY_DARK};
+  background-color: ${({ theme }) => theme.color.INPUT_BACKGROUND};
+  color: ${({ theme }) => theme.color.INPUT_TEXT};
+  white-space: nowrap;
   user-select: none;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.color.INPUT_BACKGROUND_DARK};
+  }
 
   &.small {
     ${SmallStyle}
@@ -56,11 +61,6 @@ const StyledButton = styled.button<{ colorTheme: ButtonPropsBase['theme'] }>`
 
   &.large {
     ${LargeStyle}
-  }
-
-  &:hover {
-    background-color: ${({ colorTheme, theme }) =>
-      theme.lightColor[THEMES_BUTTON[colorTheme].hoverBackground[1]]};
   }
 
   &.contained {
@@ -79,10 +79,15 @@ const StyledButton = styled.button<{ colorTheme: ButtonPropsBase['theme'] }>`
   &.outlined {
     border: 1px solid
       ${({ colorTheme, theme }) =>
-        theme.lightColor[THEMES_BUTTON[colorTheme].border]};
+        theme.color[THEMES_BUTTON[colorTheme].border]};
 
     color: ${({ colorTheme, theme }) =>
-      theme.lightColor[THEMES_BUTTON[colorTheme].text[1]]};
+      theme.color[THEMES_BUTTON[colorTheme].text[1]]};
+
+    &:hover {
+      background-color: ${({ colorTheme, theme }) =>
+        theme.color[THEMES_BUTTON[colorTheme].hoverBackground[1]]};
+    }
   }
 
   &:disabled {

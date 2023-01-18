@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as ChevronIcon } from '@assets/icons/chevron.svg';
 import Button from '@components/common/Button';
+import { ReactComponent as ChevronIcon } from '@assets/icons/chevron.svg';
 import pxToRem from '@utils/pxToRem';
 import useFilterContext from './hooks/useFilterContext';
 
@@ -15,6 +15,7 @@ const Content = styled.span`
     width: ${pxToRem(14)};
     height: ${pxToRem(14)};
     margin-left: ${pxToRem(14)};
+    fill: ${({ theme }) => theme.color.INPUT_TEXT};
   }
 `;
 
@@ -28,7 +29,8 @@ function FilterTrigger({ content }: Props) {
       elementType="button"
       theme="normal"
       onClick={handleClick}
-      aria-haspopup={isOpen}
+      aria-haspopup
+      aria-expanded={isOpen}
       aria-controls={`popup-${id}`}
     >
       <Content>
