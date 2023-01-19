@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { searchQueryState } from '@recoil/search';
+import { inputTextState } from '@recoil/input';
 import useDebounce from '@hooks/useDebounce';
 
 function useInputSearch() {
   const [inputValue, setInputValue] = useState('');
-  const setQuery = useSetRecoilState(searchQueryState('repository'));
+  const setQuery = useSetRecoilState(inputTextState('repository'));
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = ({
     currentTarget: { value }
