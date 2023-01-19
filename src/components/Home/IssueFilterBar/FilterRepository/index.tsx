@@ -21,10 +21,19 @@ const Content = styled.div`
 const Top = styled.div`
   padding: ${pxToRem(16)};
   border-bottom: 1px solid ${({ theme }) => theme.color.BORDER_DARK};
+  text-align: center;
 
   & > button {
     width: 100%;
+    margin-top: ${pxToRem(8)};
   }
+
+  ${({ theme }) =>
+    theme.media.tablet(`
+    & > button {
+      margin: 0;
+    }
+  `)}
 `;
 
 const Bottom = styled.div`

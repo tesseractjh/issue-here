@@ -34,7 +34,7 @@ const SpinnerQuarter = styled.span<{ delay?: number }>`
 
 function Spinner() {
   return (
-    <Container>
+    <Container className="spinner">
       <SpinnerQuarter delay={-0.4} />
       <SpinnerQuarter delay={-0.3} />
       <SpinnerQuarter delay={-0.2} />

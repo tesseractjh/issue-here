@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
+import HiddenText from '@components/common/HiddenText';
 import InnerWrapper from '@components/common/InnerWrapper';
 import { ReactComponent as GithubIcon } from '@assets/icons/github.svg';
 import pxToRem from '@utils/pxToRem';
-import { HEADER_HEIGHT_DESKTOP, HEADER_HEIGHT_TABLET } from '@constants/style';
 import SwitchTheme from './ThemeSwitch';
+import { HEADER_HEIGHT_DESKTOP, HEADER_HEIGHT_TABLET } from '@constants/style';
 import useHeader from '../hooks/useHeader';
 
 const Container = styled.header`
@@ -51,7 +52,7 @@ const Container = styled.header`
     `)}
 `;
 
-const LogoWrapper = styled.div`
+const LogoWrapper = styled.h1`
   ${({ theme }) => theme.mixin.flex()}
   height: ${pxToRem(100)};
   font-weight: 700;
@@ -106,6 +107,7 @@ function Header() {
           <GithubIcon />
           issue<Bright>here</Bright>
         </LogoWrapper>
+        <HiddenText>다크 모드 스위치</HiddenText>
         <SwitchTheme />
       </InnerWrapper>
     </Container>

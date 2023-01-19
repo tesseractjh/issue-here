@@ -1,3 +1,4 @@
+import HiddenText from '@components/common/HiddenText';
 import ToggleSwitch from '@components/common/Input/ToggleSwitch';
 import { ReactComponent as MoonIcon } from '@assets/icons/moon.svg';
 import { ReactComponent as SunIcon } from '@assets/icons/sun.svg';
@@ -10,8 +11,18 @@ function SwitchTheme() {
     <ToggleSwitch
       checked={isDarkMode}
       setChecked={setTheme}
-      checkedContent={<MoonIcon />}
-      uncheckedContent={<SunIcon />}
+      checkedContent={
+        <>
+          <MoonIcon />
+          <HiddenText>다크 모드</HiddenText>
+        </>
+      }
+      uncheckedContent={
+        <>
+          <SunIcon />
+          <HiddenText>라이트 모드</HiddenText>
+        </>
+      }
     />
   );
 }
