@@ -7,6 +7,9 @@ export namespace Github {
     html_url: string;
   };
 
+  export type Sort = 'updated' | 'created' | 'comments';
+  export type Order = 'asc' | 'desc';
+
   export interface Repository {
     node_id: string;
     name: string;
@@ -29,10 +32,8 @@ export namespace Github {
   export interface Params {
     q: string;
     page: number;
+    sort: Sort;
   }
-
-  export type Sort = 'created' | 'updated' | 'comments';
-  export type Order = 'asc' | 'desc';
 
   export interface Issue {
     node_id: string;
@@ -56,8 +57,7 @@ export namespace Github {
   export interface IssueFilter {
     repo: string[];
     state: string[];
-    // title: string;
-    // sort: Sort;
+    sort: Sort;
     // order: Order;
     page: number;
   }

@@ -5,7 +5,7 @@ function useFilterIssueState() {
   const setFilter = useSetRecoilState(filterIssueStateState);
   const handleClear = () => setFilter({ open: true });
 
-  return { handleClear };
+  return handleClear;
 }
 
 export default useFilterIssueState;

@@ -2,13 +2,13 @@ import styled, { css } from 'styled-components';
 import pxToRem from '@utils/pxToRem';
 import useRadio from './hooks/useRadio';
 
-interface Props
+interface Props<T>
   extends React.PropsWithChildren,
     Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'value'> {
   size: 'small' | 'medium' | 'large';
-  value: string;
-  curValue: string;
-  setValue: (value: string | ((prev: string) => string)) => void;
+  value: T;
+  curValue: T;
+  setValue: (value: T | ((prev: T) => T)) => void;
 }
 
 const SmallStyle = css`
@@ -72,14 +72,15 @@ const Container = styled.label`
 `;
 
 const Radio = styled.span<{ checked?: boolean }>`
-  ${({ theme }) => theme.mixin.inlineFlex()}
   overflow: hidden;
+  position: relative;
   border: 1px solid ${({ theme }) => theme.lightColor.BLUE_DARK};
   border-radius: 50%;
 
   &::after {
     content: '';
     display: inline-block;
+    ${({ theme }) => theme.placeholder.absoluteCenter}
     width: 75%;
     height: 75%;
     border-radius: 50%;
@@ -94,7 +95,7 @@ const Radio = styled.span<{ checked?: boolean }>`
     `}
 `;
 
-function InputRadio({
+function InputRadio<T>({
   size,
   name,
   value,
@@ -102,8 +103,8 @@ function InputRadio({
   setValue,
   children,
   ...attributes
-}: Props) {
-  const { handleChange, handleKeyDown } = useRadio({ value, setValue });
+}: Props<T>) {
+  const { handleChange, handleKeyDown } = useRadio<T>({ value, setValue });
   const checked = curValue === value;
 
   return (
@@ -114,7 +115,7 @@ function InputRadio({
         type="radio"
         className="sr-only"
         name={name}
-        value={value}
+        value={String(value)}
         checked={checked}
         onChange={handleChange}
         onKeyDown={handleKeyDown}

@@ -1,12 +1,12 @@
 import InputCheckbox from '@components/common/Input/InputCheckbox';
-import useInputIssueState from './hooks/useInputIssueState';
+import useInputFilterIssueState from './hooks/useInputFilterIssueState';
 
 interface Props extends React.PropsWithChildren {
   value: string;
 }
 
-function InputIssueState({ value, children }: Props) {
-  const { checked, setChecked } = useInputIssueState(value);
+function InputFilterIssueState({ value, children }: Props) {
+  const { checked, setChecked } = useInputFilterIssueState(value);
   return (
     <InputCheckbox size="large" checked={checked} setChecked={setChecked}>
       {children}
@@ -14,4 +14,4 @@ function InputIssueState({ value, children }: Props) {
   );
 }
 
-export default InputIssueState;
+export default InputFilterIssueState;
