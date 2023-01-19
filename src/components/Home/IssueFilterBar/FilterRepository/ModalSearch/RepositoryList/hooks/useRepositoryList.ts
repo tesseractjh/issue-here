@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
-import { searchQueryState } from '@recoil/search';
+import { inputTextState } from '@recoil/input';
 import useRepositories from '@hooks/queries/useRepositories';
 
 function useRepositoryList() {
-  const query = useRecoilValue(searchQueryState('repository'));
+  const query = useRecoilValue(inputTextState('repository'));
   const { data, isFetching, fetchNextPage } = useRepositories({
     params: { q: query },
     enabled: !!query

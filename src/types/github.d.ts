@@ -31,7 +31,6 @@ export namespace Github {
     page: number;
   }
 
-  export type State = 'open' | 'closed';
   export type Sort = 'created' | 'updated' | 'comments';
   export type Order = 'asc' | 'desc';
 
@@ -42,7 +41,7 @@ export namespace Github {
     number: number;
     title: string;
     user: User;
-    state: State;
+    state: string;
     comments: number;
     created_at: string;
     closed_at: string | null;
@@ -56,7 +55,7 @@ export namespace Github {
 
   export interface IssueFilter {
     repo: string[];
-    // state: State;
+    state: string[];
     // title: string;
     // sort: Sort;
     // order: Order;
