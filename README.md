@@ -33,3 +33,5 @@ Github API는 시간당 5,000개의 요청을 허용합니다. 5,000개를 초�
   - ✅ 등록된 모든 Repository의 Issue 조회
   - ☑️ 등록된 Repository 중 일부만 선택하여 조회
   - ☑️ Issue의 open/closed 여부로 필터링하여 조회
+  - ☑️ Issue의 정렬 기준을 선택하여 조회
+  - ☑️ Issue의 정렬 순서를 선택하여 조회
