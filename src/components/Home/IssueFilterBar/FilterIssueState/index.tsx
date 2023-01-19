@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import pxToRem from '@utils/pxToRem';
-import InputIssueState from './InputIssueState';
+import InputIssueState from './InputFilterIssueState';
 import useFilterIssueState from './hooks/useFilterIssueState';
 import IssueFilter from '../IssueFilter';
 
@@ -12,7 +12,7 @@ const Content = styled.div`
 `;
 
 function FilterIssueState() {
-  const { handleClear } = useFilterIssueState();
+  const handleClear = useFilterIssueState();
 
   return (
     <IssueFilter id="state" triggerContent="Open/Closed" onClear={handleClear}>

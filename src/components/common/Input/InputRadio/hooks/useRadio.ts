@@ -1,12 +1,12 @@
-interface Params {
-  value: string;
-  setValue: (value: string | ((prev: string) => string)) => void;
+interface Params<T> {
+  value: T;
+  setValue: (value: T | ((prev: T) => T)) => void;
 }
 
-function useRadio<T extends HTMLElement>({ value, setValue }: Params) {
+function useRadio<T>({ value, setValue }: Params<T>) {
   const handleChange = () => setValue(value);
 
-  const handleKeyDown: React.KeyboardEventHandler<T> = ({ key }) => {
+  const handleKeyDown: React.KeyboardEventHandler = ({ key }) => {
     if (key === 'Enter') {
       setValue(value);
     }

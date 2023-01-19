@@ -5,7 +5,7 @@ import { filterIssueStateState } from '@recoil/filter';
 const hasOnlyThisOption = (prev: FilterIssueStateState, value: string) =>
   Object.values(prev).filter(Boolean).length === 1 && prev[value];
 
-function useInputIssueState(val: string) {
+function useInputFilterIssueState(val: string) {
   const [issueState, setIssueState] = useRecoilState(filterIssueStateState);
   const checked = !!issueState[val];
 
@@ -30,4 +30,4 @@ function useInputIssueState(val: string) {
   return { checked, setChecked };
 }
 
-export default useInputIssueState;
+export default useInputFilterIssueState;
