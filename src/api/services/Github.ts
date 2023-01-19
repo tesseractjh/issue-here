@@ -15,7 +15,9 @@ const instance = axios.create({
   timeout: 10 * 1000
 });
 
-export const findRepoByName = async (params: Github.Params) => {
+export const findRepoByName = async (
+  params: Omit<Github.Params, 'sort' | 'order'>
+) => {
   const { data } = await instance.get<Github.ResponseSearchRepository>(
     '/search/repositories',
     {

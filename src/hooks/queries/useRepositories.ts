@@ -4,7 +4,7 @@ import API from '@api/index';
 import { GITHUB_REPOSITORY_PER_PAGE } from '@constants/github';
 
 interface Params {
-  params: Omit<Github.Params, 'page'>;
+  params: Omit<Github.Params, 'page' | 'sort' | 'order'>;
   enabled?: boolean;
 }
 
