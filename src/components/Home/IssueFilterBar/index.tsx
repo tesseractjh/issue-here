@@ -9,7 +9,7 @@ import {
   HEADER_HEIGHT_TABLET,
   ISSUE_FILTER_BAR_HEIGHT
 } from '@constants/style';
-import FilterSortState from './FilterSort';
+import FilterSort from './FilterSort';
 
 const Container = styled.div`
   position: sticky;
@@ -38,7 +38,7 @@ function IssueFilterBar() {
           <HiddenText>Issue filter</HiddenText>
           <FitlerRepository />
           <FilterIssueState />
-          <FilterSortState />
+          <FilterSort />
         </Flex>
       </InnerWrapper>
     </Container>
