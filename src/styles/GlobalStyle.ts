@@ -53,9 +53,10 @@ const GlobalStyle = createGlobalStyle`
   /* custom */
 
   html {
-    background-color: ${({ theme }) => theme.color.WHITE};
+    background-color: ${({ theme }) => theme.color.BACKGROUND};
     color: ${({ theme }) => theme.color.GRAY};
     font-size: 62.5%;
+    transition: background-color 0.15s;
   }
 
   html,
@@ -92,6 +93,28 @@ const GlobalStyle = createGlobalStyle`
 
   input:focus {
     outline: none;
+  }
+
+  /* util */
+
+  .sr-only {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(0,0,0,0);
+  }
+
+  body.prevent-scroll-modal, body.prevent-scroll-popup {
+    ${({ theme }) =>
+      theme.media.tablet(`
+        overflow: hidden;
+        touch-action: none;
+        overscroll-behavior: none;
+    `)}
   }
 `;
 

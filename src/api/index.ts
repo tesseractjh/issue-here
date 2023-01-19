@@ -1,4 +1,4 @@
-import * as GITHUB from './services/Github';
+import * as GITHUB from '@api/services/Github';
 
 const API = { GITHUB };
 

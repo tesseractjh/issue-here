@@ -1,12 +1,51 @@
 import 'styled-components';
-import color from '@styles/theme/color';
 import media from '@styles/theme/media';
 import * as mixin from '@styles/theme/mixin';
+import * as placeholder from '@styles/theme/placeholder';
 
 declare module 'styled-components' {
+  type Color = {
+    HOVER_BACKGROUND: string;
+    INPUT_CHECKED: string;
+    POPUP_TEXT: string;
+    INPUT_TEXT: string;
+    POPUP_BACKGROUND: string;
+    ITEM_BACKGROUND: string;
+    INPUT_BACKGROUND: string;
+    INPUT_BACKGROUND_DARK: string;
+    BACKGROUND: string;
+    BACKGROUND_DARK: string;
+    BACKGROUND_LIGHT: string;
+    BORDER: string;
+    BORDER_DARK: string;
+    INACTIVE: string;
+    BOX_SHADOW: string;
+    BOX_SHADOW_LIGHT: string;
+    WHITE: string;
+    GRAY: string;
+    GRAY_DARK: string;
+    GRAY_LIGHT: string;
+    BLUE: string;
+    BLUE_DARK: string;
+    BLUE_LIGHT: string;
+    NAVY: string;
+    NAVY_DARK: string;
+    NAVY_LIGHT: string;
+    GREEN: string;
+    GREEN_DARK: string;
+    GREEN_LIGHT: string;
+    RED: string;
+    RED_DARK: string;
+    RED_LIGHT: string;
+    YELLOW: string;
+  };
+
   interface DefaultTheme {
-    color: typeof color;
+    color: Color;
     media: typeof media;
     mixin: typeof mixin;
+    placeholder: typeof placeholder;
+    lightColor: Color;
+    darkColor: Color;
   }
 }
