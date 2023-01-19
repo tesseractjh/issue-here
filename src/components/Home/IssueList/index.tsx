@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import Loading from '@components/common/Loading';
-import pxToRem from '@utils/pxToRem';
 import IssueItem from './IssueItem';
+import pxToRem from '@utils/pxToRem';
+import IssuePagination from './IssuePagination';
 import useIssue from './hooks/useIssueList';
 
 const Container = styled.div`
@@ -29,7 +30,7 @@ const List = styled.ul`
 `;
 
 function IssueList() {
-  const { issues, isFetching } = useIssue();
+  const { issues, isFetching, totalCount, page, setPage } = useIssue();
 
   return (
     <Container>
@@ -39,6 +40,7 @@ function IssueList() {
           <IssueItem key={issue.node_id} issue={issue} />
         ))}
       </List>
+      <IssuePagination totalCount={totalCount} page={page} setPage={setPage} />
       {isFetching && <Loading />}
     </Container>
   );

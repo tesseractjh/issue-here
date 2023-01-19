@@ -30,12 +30,15 @@ export const findRepoByName = async (params: Github.Params) => {
 };
 
 export const findIssue = async (params: Github.Params) => {
-  const { data } = await instance.get('/search/issues', {
-    params: {
-      ...params,
-      q: `${params.q} is:issue`,
-      per_page: GITHUB_ISSUE_PER_PAGE
+  const { data } = await instance.get<Github.ResponseSearchIssue>(
+    '/search/issues',
+    {
+      params: {
+        ...params,
+        q: `${params.q} is:issue`,
+        per_page: GITHUB_ISSUE_PER_PAGE
+      }
     }
-  });
+  );
   return data;
 };

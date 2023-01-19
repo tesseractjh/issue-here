@@ -1,4 +1,5 @@
 import type { Github } from 'src/types/github';
+import React from 'react';
 import styled from 'styled-components';
 import HiddenText from '@components/common/HiddenText';
 import { ReactComponent as ClosedIcon } from '@assets/icons/closed.svg';
@@ -159,4 +160,4 @@ function IssueItem({ issue }: Props) {
   );
 }
 
-export default IssueItem;
+export default React.memo(IssueItem);

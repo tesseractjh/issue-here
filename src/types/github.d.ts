@@ -55,7 +55,7 @@ export namespace Github {
   }
 
   export interface IssueFilter {
-    repositories: string[];
+    repo: string[];
     // state: State;
     // title: string;
     // sort: Sort;

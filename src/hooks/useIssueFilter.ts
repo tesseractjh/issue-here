@@ -11,11 +11,11 @@ function useIssueFilter() {
           filterRepositoryState
         );
 
-        const repositories = repositoryState
+        const repo = repositoryState
           .filter(({ selected }) => selected)
           .map(({ owner, repo: repoName }) => `${owner}/${repoName}`);
 
-        setFilter({ repositories });
+        setFilter({ repo });
       },
     []
   );
