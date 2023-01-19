@@ -15,7 +15,7 @@ function useIssueList() {
   const q = getQualifier(filter);
 
   const { data, isFetching, error } = useIssues({
-    params: { q, sort: filter.sort, page },
+    params: { q, sort: filter.sort, order: filter.order, page },
     enabled: !!q
   });
 
