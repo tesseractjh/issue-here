@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import HiddenText from '@components/common/HiddenText';
 import InnerWrapper from '@components/common/InnerWrapper';
 import pxToRem from '@utils/pxToRem';
+import FilterIssueState from './FilterIssueState';
 import {
   HEADER_HEIGHT_DESKTOP,
   HEADER_HEIGHT_TABLET,
@@ -35,6 +36,7 @@ function IssueFilterBar() {
         <Flex>
           <HiddenText>Issue filter</HiddenText>
           <FitlerRepository />
+          <FilterIssueState />
         </Flex>
       </InnerWrapper>
     </Container>

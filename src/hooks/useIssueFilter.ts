@@ -1,5 +1,9 @@
 import { useRecoilCallback, useSetRecoilState } from 'recoil';
-import { filterRepositoryState, filterState } from '@recoil/filter';
+import {
+  filterIssueStateState,
+  filterRepositoryState,
+  filterState
+} from '@recoil/filter';
 
 function useIssueFilter() {
   const setFilter = useSetRecoilState(filterState);
@@ -10,12 +14,19 @@ function useIssueFilter() {
         const repositoryState = await snapshot.getPromise(
           filterRepositoryState
         );
+        const issueStateState = await snapshot.getPromise(
+          filterIssueStateState
+        );
 
         const repo = repositoryState
           .filter(({ selected }) => selected)
           .map(({ owner, repo: repoName }) => `${owner}/${repoName}`);
 
-        setFilter({ repo });
+        const state = Object.entries(issueStateState)
+          .filter(([, value]) => value)
+          .map(([key]) => key);
+
+        setFilter({ repo, state });
       },
     []
   );
