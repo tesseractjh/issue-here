@@ -32,7 +32,13 @@ export const filterIssueStateState = atom<FilterIssueStateState>({
   ]
 });
 
+export const filterSortState = atom<Github.Sort>({
+  key: 'filterSortState',
+  default: (localStorage.getItem('filter_sort') ?? 'updated') as Github.Sort,
+  effects: [localStorageEffect('filter_sort')]
+});
+
 export const filterState = atom<FilterState>({
   key: 'filterState',
-  default: { repo: [], state: [] }
+  default: { repo: [], state: [], sort: 'updated' }
 });

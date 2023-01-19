@@ -1,14 +1,15 @@
 import styled, { css } from 'styled-components';
 import HiddenText from '@components/common/HiddenText';
 import InnerWrapper from '@components/common/InnerWrapper';
-import pxToRem from '@utils/pxToRem';
 import FilterIssueState from './FilterIssueState';
+import pxToRem from '@utils/pxToRem';
+import FitlerRepository from './FilterRepository';
 import {
   HEADER_HEIGHT_DESKTOP,
   HEADER_HEIGHT_TABLET,
   ISSUE_FILTER_BAR_HEIGHT
 } from '@constants/style';
-import FitlerRepository from './FilterRepository';
+import FilterSortState from './FilterSort';
 
 const Container = styled.div`
   position: sticky;
@@ -37,6 +38,7 @@ function IssueFilterBar() {
           <HiddenText>Issue filter</HiddenText>
           <FitlerRepository />
           <FilterIssueState />
+          <FilterSortState />
         </Flex>
       </InnerWrapper>
     </Container>
