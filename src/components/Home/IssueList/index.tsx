@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import ErrorFallback from '@components/common/ErrorFallback';
 import Loading from '@components/common/Loading';
 import IssueItem from './IssueItem';
 import pxToRem from '@utils/pxToRem';
@@ -30,15 +31,19 @@ const List = styled.ul`
 `;
 
 function IssueList() {
-  const { issues, isFetching, totalCount, page, setPage } = useIssue();
+  const { issues, isFetching, errorType, totalCount, page, setPage } =
+    useIssue();
 
   return (
     <Container>
       <List>
-        {!issues.length && <NoResult>등록된 이슈가 없습니다.</NoResult>}
+        {!issues.length && errorType === 'none' && (
+          <NoResult>등록된 이슈가 없습니다.</NoResult>
+        )}
         {issues.map((issue) => (
           <IssueItem key={issue.node_id} issue={issue} />
         ))}
+        <ErrorFallback errorType={errorType} />
       </List>
       <IssuePagination totalCount={totalCount} page={page} setPage={setPage} />
       {isFetching && <Loading />}

@@ -4,6 +4,7 @@ import { filterState } from '@recoil/filter';
 import useIssues from '@hooks/queries/useIssues';
 import useComponentDidMount from '@hooks/useComponentDidMount';
 import useIssueFilter from '@hooks/useIssueFilter';
+import { getErrorType } from '@utils/error';
 import { getQualifier } from '@utils/github';
 import { GITHUB_MAXIMUM_RESULT } from '@constants/github';
 
@@ -13,10 +14,12 @@ function useIssueList() {
   const filter = useRecoilValue(filterState);
   const q = getQualifier(filter);
 
-  const { data, isFetching } = useIssues({
+  const { data, isFetching, error } = useIssues({
     params: { q, page },
     enabled: !!q
   });
+
+  const errorType = getErrorType(error);
 
   useComponentDidMount(applyFilter);
 
@@ -27,6 +30,7 @@ function useIssueList() {
   return {
     issues: q && data?.items ? data.items : [],
     isFetching,
+    errorType,
     totalCount:
       q && data?.total_count
         ? Math.min(data.total_count, GITHUB_MAXIMUM_RESULT)

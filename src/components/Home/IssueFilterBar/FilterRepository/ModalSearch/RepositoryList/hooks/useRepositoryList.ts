@@ -2,13 +2,16 @@ import { useCallback } from 'react';
 import { useRecoilValue } from 'recoil';
 import { inputTextState } from '@recoil/input';
 import useRepositories from '@hooks/queries/useRepositories';
+import { getErrorType } from '@utils/error';
 
 function useRepositoryList() {
   const query = useRecoilValue(inputTextState('repository'));
-  const { data, isFetching, fetchNextPage } = useRepositories({
+  const { data, isFetching, error, fetchNextPage } = useRepositories({
     params: { q: query },
     enabled: !!query
   });
+
+  const errorType = getErrorType(error);
 
   const handleIntersect = useCallback(async () => {
     const result = await fetchNextPage();
@@ -28,6 +31,7 @@ function useRepositoryList() {
             )
         ) ?? [],
     isFetching,
+    errorType,
     handleIntersect
   };
 }
