@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 import useInfiniteScroll from '@hooks/useInfiniteScroll';
-import Spinner from '@components/common/Spinner';
 import RepositoryItem from './RepositoryItem';
-import pxToRem from '@utils/pxToRem';
+import ErrorFallback from '@components/common/ErrorFallback';
+import Spinner from '@components/common/Spinner';
 import useRepositoryItemProps from './hooks/useRepositoryItemProps';
+import pxToRem from '@utils/pxToRem';
 import useRepositoryList from './hooks/useRepositoryList';
 import { MODAL_HEADER_HEIGHT } from '@constants/style';
 
@@ -43,7 +44,8 @@ const FallbackWrapper = styled.div<{ isEmpty: boolean }>`
 `;
 
 function RepositoryList() {
-  const { query, data, isFetching, handleIntersect } = useRepositoryList();
+  const { query, data, isFetching, errorType, handleIntersect } =
+    useRepositoryList();
   const itemProps = useRepositoryItemProps();
 
   const target = useInfiniteScroll<HTMLUListElement>({
@@ -63,7 +65,7 @@ function RepositoryList() {
           {...itemProps}
         />
       ))}
-      {!data.length && !isFetching && (
+      {!data.length && !isFetching && errorType === 'none' && (
         <NoResult>검색 결과가 없습니다.</NoResult>
       )}
       {isFetching && (
@@ -71,6 +73,7 @@ function RepositoryList() {
           <Spinner />
         </FallbackWrapper>
       )}
+      <ErrorFallback errorType={errorType} />
     </Container>
   );
 }

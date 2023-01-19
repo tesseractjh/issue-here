@@ -9,4 +9,5 @@ export const getQualifier = (filter: FilterState) =>
       }
       return `${key}:${value}`;
     })
-    .join(' ');
+    .join(' ')
+    .trim();
