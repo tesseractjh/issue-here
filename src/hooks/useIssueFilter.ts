@@ -1,6 +1,7 @@
 import { useRecoilCallback, useSetRecoilState } from 'recoil';
 import {
   filterIssueStateState,
+  filterOrderState,
   filterRepositoryState,
   filterSortState,
   filterState
@@ -18,7 +19,8 @@ function useIssueFilter() {
         const issueStateState = await snapshot.getPromise(
           filterIssueStateState
         );
-        const sortState = await snapshot.getPromise(filterSortState);
+        const sort = await snapshot.getPromise(filterSortState);
+        const order = await snapshot.getPromise(filterOrderState);
 
         const repo = repositoryState
           .filter(({ selected }) => selected)
@@ -28,7 +30,7 @@ function useIssueFilter() {
           .filter(([, value]) => value)
           .map(([key]) => key);
 
-        setFilter({ repo, state, sort: sortState });
+        setFilter({ repo, state, sort, order });
       },
     []
   );

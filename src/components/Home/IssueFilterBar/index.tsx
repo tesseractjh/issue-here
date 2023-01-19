@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
 import HiddenText from '@components/common/HiddenText';
-import InnerWrapper from '@components/common/InnerWrapper';
 import FilterIssueState from './FilterIssueState';
+import InnerWrapper from '@components/common/InnerWrapper';
+import FilterOrder from './FilterOrder';
 import pxToRem from '@utils/pxToRem';
 import FitlerRepository from './FilterRepository';
 import {
@@ -9,7 +10,7 @@ import {
   HEADER_HEIGHT_TABLET,
   ISSUE_FILTER_BAR_HEIGHT
 } from '@constants/style';
-import FilterSortState from './FilterSort';
+import FilterSort from './FilterSort';
 
 const Container = styled.div`
   position: sticky;
@@ -25,7 +26,8 @@ const Container = styled.div`
 `;
 
 const Flex = styled.div`
-  ${({ theme }) => theme.mixin.flex('flex-start', 'center', pxToRem(20))}
+  ${({ theme }) => theme.mixin.flex('flex-start', 'center', pxToRem(10, 20))}
+  flex-wrap: wrap;
   min-height: ${pxToRem(ISSUE_FILTER_BAR_HEIGHT)};
   padding: ${pxToRem(8, 0)};
 `;
@@ -38,7 +40,8 @@ function IssueFilterBar() {
           <HiddenText>Issue filter</HiddenText>
           <FitlerRepository />
           <FilterIssueState />
-          <FilterSortState />
+          <FilterSort />
+          <FilterOrder />
         </Flex>
       </InnerWrapper>
     </Container>

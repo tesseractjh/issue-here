@@ -33,6 +33,7 @@ export namespace Github {
     q: string;
     page: number;
     sort: Sort;
+    order: Order;
   }
 
   export interface Issue {
@@ -58,7 +59,7 @@ export namespace Github {
     repo: string[];
     state: string[];
     sort: Sort;
-    // order: Order;
+    order: Order;
     page: number;
   }
 }
