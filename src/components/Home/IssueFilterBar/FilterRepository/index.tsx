@@ -4,7 +4,7 @@ import FavoriteList from './FavoriteList';
 import pxToRem from '@utils/pxToRem';
 import Message from './Message';
 import ModalSearch from './ModalSearch';
-import useFilterRepository from './ModalSearch/hooks/useFilterRepository';
+import useFilterRepository from './hooks/useFilterRepository';
 import IssueFilter from '../IssueFilter';
 
 const Content = styled.div`
